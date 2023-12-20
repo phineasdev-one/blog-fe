@@ -1,8 +1,11 @@
-import Link from 'next/link'
-import React from 'react'
-import SwiperCore, { Autoplay, Navigation } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
-import categories from "@/data/mock/categories-data"
+'use client';
+
+import Link from 'next/link';
+import React from 'react';
+import SwiperCore, { Autoplay, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import categories from '@/data/mock/categories-data';
 
 SwiperCore.use([Autoplay, Navigation]);
 const HotTopic = () => {
@@ -12,9 +15,17 @@ const HotTopic = () => {
         <div className="box-topics border-gray-800 bg-gray-850">
           <div className="row">
             <div className="col-lg-2">
-              <h5 className="mb-15 color-white wow animate__animated animate__fadeInUp" data-wow-delay="0s">Hot topics</h5>
-              <p className="color-gray-500 mb-20 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">Don't miss out on the latest news about Travel tips,
-                Hotels review, Food guide...</p>
+              <h5
+                className="mb-15 color-white wow animate__animated animate__fadeInUp"
+                data-wow-delay="0s">
+                Hot topics
+              </h5>
+              <p
+                className="color-gray-500 mb-20 wow animate__animated animate__fadeInUp"
+                data-wow-delay=".3s">
+                Don't miss out on the latest news about Travel tips, Hotels
+                review, Food guide...
+              </p>
               <div className="box-buttons-slider position-relative wow animate__animated animate__zoomIn">
                 <div className="swiper-button-prev swiper-button-prev-style-1" />
                 <div className="swiper-button-next swiper-button-next-style-1" />
@@ -29,11 +40,11 @@ const HotTopic = () => {
                     loop={true}
                     autoplay={{
                       delay: 2500,
-                      disableOnInteraction: false
+                      disableOnInteraction: false,
                     }}
                     navigation={{
-                      prevEl: ".swiper-button-prev-style-1",
-                      nextEl: ".swiper-button-next-style-1",
+                      prevEl: '.swiper-button-prev-style-1',
+                      nextEl: '.swiper-button-next-style-1',
                     }}
                     breakpoints={{
                       320: {
@@ -61,20 +72,30 @@ const HotTopic = () => {
                         spaceBetween: 30,
                       },
                     }}
-                    className="swiper-wrapper"
-                  >
+                    className="swiper-wrapper">
                     {categories.map((item, i) => (
                       <SwiperSlide className="swiper-slide" key={i}>
-                        <div className="card-style-1"><Link href="/blog-archive">
-                          <div className="card-image"><img src={`assets/imgs/page/categories/${item.imgBig}`} alt="Genz" />
-                            <div className="card-info">
-                              <div className="info-bottom">
-                                <h6 className="color-white mb-5">{item.title}</h6>
-                                <p className="text-xs color-gray-500"> {item.postCount} Articles</p>
+                        <div className="card-style-1">
+                          <Link href="/blog-archive">
+                            <div className="card-image">
+                              <img
+                                src={`assets/imgs/page/categories/${item.imgBig}`}
+                                alt="Genz"
+                              />
+                              <div className="card-info">
+                                <div className="info-bottom">
+                                  <h6 className="color-white mb-5">
+                                    {item.title}
+                                  </h6>
+                                  <p className="text-xs color-gray-500">
+                                    {' '}
+                                    {item.postCount} Articles
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </Link></div>
+                          </Link>
+                        </div>
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -89,4 +110,3 @@ const HotTopic = () => {
 };
 
 export default HotTopic;
-

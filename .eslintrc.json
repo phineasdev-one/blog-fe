@@ -30,7 +30,9 @@
         "patterns": ["*../**"]
       }
     ],
-    "no-useless-catch": "off"
+    "no-useless-catch": "off",
+    "no-redeclare": "off",
+    "@typescript-eslint/no-redeclare": "off"
   },
   "plugins": ["unused-imports"]
 }

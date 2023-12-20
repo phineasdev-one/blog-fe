@@ -1,5 +1,9 @@
 import { Inter } from 'next/font/google';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import '@/assets/css/style.css';
 import Layout from '@/components/layout/Layout';
 
