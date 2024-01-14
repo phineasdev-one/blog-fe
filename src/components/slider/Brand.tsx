@@ -1,24 +1,24 @@
-import React from 'react'
-import SwiperCore, { Autoplay, Navigation } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
+import React from 'react';
+import SwiperCore, { Autoplay, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-SwiperCore.use([Autoplay, Navigation])
+SwiperCore.use([Autoplay, Navigation]);
 const Brand = () => {
   const data = [
     {
-      img: "agon.svg",
+      img: 'agon.svg',
     },
     {
-      img: "mon.svg",
+      img: 'mon.svg',
     },
     {
-      img: "fig.svg",
+      img: 'fig.svg',
     },
     {
-      img: "flow.svg",
+      img: 'flow.svg',
     },
     {
-      img: "evara.svg",
+      img: 'evara.svg',
     },
   ];
 
@@ -30,11 +30,11 @@ const Brand = () => {
         loop={true}
         autoplay={{
           delay: 2500,
-          disableOnInteraction: false
+          disableOnInteraction: false,
         }}
         navigation={{
-          prevEl: ".swiper-button-prev-style-3",
-          nextEl: ".swiper-button-next-style-3",
+          prevEl: '.swiper-button-prev-style-3',
+          nextEl: '.swiper-button-next-style-3',
         }}
         breakpoints={{
           320: {
@@ -62,11 +62,15 @@ const Brand = () => {
             spaceBetween: 30,
           },
         }}
-        className="swiper-wrapper pt-5"
-      >
+        className="swiper-wrapper pt-5">
         {data.map((item, i) => (
           <SwiperSlide className="swiper-slide" key={i}>
-            <a href="#"><img src={`assets/imgs/page/homepage3/${item.img}`} alt="Genz" /></a>
+            <a href="#">
+              <img
+                src={`assets/imgs/page/homepage3/${item.img}`}
+                alt="Phineas"
+              />
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -75,4 +79,3 @@ const Brand = () => {
 };
 
 export default Brand;
-

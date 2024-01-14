@@ -12,6 +12,7 @@ export default function Home() {
         <div className="row">
           <div className="col-xl-1" />
           <div className="col-xl-10 col-lg-12">
+            {/* Can choose other option */}
             <Hero1 />
             <HotTopic />
             <EditorPicked />

@@ -273,7 +273,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                 </ul>
               </div>
               <div className="site-copyright color-gray-400 mt-30">
-                Copyright 2023 © Genz - Personal Blog Template.
+                Copyright 2023 © Phineas - Personal Blog Template.
                 <br />
                 Designed by
                 <Link href="http://alithemes.com" target="_blank">

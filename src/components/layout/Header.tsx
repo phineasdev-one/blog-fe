@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useEffect, FC } from 'react';
+import { FC } from 'react';
 
 import SwitchButton from '@/components/elements/SwitchButton';
 
@@ -10,46 +10,14 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
-  // State to keep track of the scroll position
-  const [scroll, setScroll] = useState(0);
-
   // State to represent whether something is toggled or not
-  const [isToggled, setToggled] = useState(false);
+  // const [isToggled, setToggled] = useState(false);
 
   // Function to toggle the value of 'isToggled'
-  const toggleTrueFalse = () => setToggled(!isToggled);
-
-  // Effect hook to add a scroll event listener
-  useEffect(() => {
-    // Callback function to handle the scroll event
-    const handleScroll = () => {
-      // Check if the current scroll position is greater than 100 pixels
-      if (typeof window !== 'undefined') {
-        const scrollCheck = window.scrollY > 100;
-
-        // Update the 'scroll' state only if the scroll position has changed
-        // if (scrollCheck !== scroll) {
-        //   setScroll(window.scrollY);
-        // }
-      }
-    };
-
-    // Add the 'handleScroll' function as a scroll event listener
-    document.addEventListener('scroll', handleScroll);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  });
+  // const toggleTrueFalse = () => setToggled(!isToggled);
 
   return (
-    <header
-      className={
-        scroll
-          ? 'header sticky-bar bg-gray-900 stick'
-          : 'header sticky-bar bg-gray-900'
-      }>
+    <header className={'header sticky-bar bg-gray-900'}>
       <div className="container">
         <div className="main-header">
           <div className="header-logo">
@@ -69,51 +37,15 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
           <div className="header-nav">
             <nav className="nav-main-menu d-none d-xl-block">
               <ul className="main-menu">
-                <li className="has-children">
-                  <Link className="active" href="/">
+                <li>
+                  <Link className="color-gray-500" href="/">
                     Home
                   </Link>
-                  <ul className="sub-menu two-col">
-                    <li>
-                      <Link className="color-gray-500" href="/">
-                        Homepage - 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/index-2">
-                        Homepage - 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/index-3">
-                        Homepage - 3
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/index-4">
-                        Homepage - 4
-                      </Link>
-                    </li>
-                  </ul>
                 </li>
-                <li className="has-children">
-                  <Link className="color-gray-500" href="/page-about">
+                <li>
+                  <Link className="color-gray-500" href="/about-me">
                     About Me
                   </Link>
-                  <ul className="sub-menu">
-                    <li>
-                      <Link className="color-gray-500" href="/page-portfolio">
-                        My Portfolio
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="color-gray-500"
-                        href="/portfolio-details">
-                        Portfolio Details
-                      </Link>
-                    </li>
-                  </ul>
                 </li>
                 <li className="has-children">
                   <Link className="color-gray-500" href="#">
@@ -147,74 +79,13 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
                     </li>
                   </ul>
                 </li>
-                <li className="has-children">
+                <li>
                   <Link className="color-gray-500" href="#">
-                    Single Post
+                    Blogs
                   </Link>
-                  <ul className="sub-menu two-col">
-                    <li>
-                      <Link className="color-gray-500" href="/single-sidebar">
-                        Blog Single 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="color-gray-500"
-                        href="/single-no-sidebar">
-                        Blog Single 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/single-center">
-                        Blog Single 3
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-children">
-                  <Link className="color-gray-500" href="#">
-                    Pages
-                  </Link>
-                  <ul className="sub-menu two-col">
-                    <li>
-                      <Link className="color-gray-500" href="/page-about">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/page-author">
-                        Author posts
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/page-contact">
-                        Contact
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/page-search">
-                        Search results
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/page-login">
-                        Login
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/page-signup">
-                        Signup
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="color-gray-500" href="/page-404">
-                        Page 404
-                      </Link>
-                    </li>
-                  </ul>
                 </li>
                 <li>
-                  <Link className="color-gray-500" href="/page-contact">
+                  <Link className="color-gray-500" href="/contact">
                     Contact
                   </Link>
                 </li>
@@ -234,13 +105,13 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
             </div>
           </div>
           <div className="header-right text-end">
-            <Link
+            {/* <Link
               className="btn btn-search"
               href="#"
               onClick={toggleTrueFalse}
-            />
+            /> */}
             <SwitchButton />
-            <div
+            {/* <div
               className={
                 isToggled
                   ? 'form-search p-20 d-block'
@@ -272,11 +143,11 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
                   # Sport
                 </Link>
               </div>
-            </div>
+            </div> */}
             <Link
               className="btn btn-linear d-none d-sm-inline-block hover-up hover-shadow"
-              href="/page-login">
-              Subscribe
+              href="/">
+              Login
             </Link>
           </div>
         </div>

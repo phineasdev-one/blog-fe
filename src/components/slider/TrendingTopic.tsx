@@ -1,37 +1,36 @@
-import Link from 'next/link'
-import React from 'react'
-import SwiperCore, { Autoplay, Navigation } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
+import Link from 'next/link';
+import React from 'react';
+import SwiperCore, { Autoplay, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-SwiperCore.use([Autoplay, Navigation])
+SwiperCore.use([Autoplay, Navigation]);
 
 const TrendingTopic = () => {
-
   const data = [
     {
-      title: "Sport",
+      title: 'Sport',
       article: 38,
-      img: "sport.png",
+      img: 'sport.png',
     },
     {
-      title: "Travel",
+      title: 'Travel',
       article: 63,
-      img: "travel.png",
+      img: 'travel.png',
     },
     {
-      title: "Design",
+      title: 'Design',
       article: 78,
-      img: "design.png",
+      img: 'design.png',
     },
     {
-      title: "Movie",
+      title: 'Movie',
       article: 125,
-      img: "movie.png",
+      img: 'movie.png',
     },
     {
-      title: "Lifestyle",
+      title: 'Lifestyle',
       article: 45,
-      img: "lifestyle.png",
+      img: 'lifestyle.png',
     },
   ];
 
@@ -44,11 +43,11 @@ const TrendingTopic = () => {
           loop={true}
           autoplay={{
             delay: 2500,
-            disableOnInteraction: false
+            disableOnInteraction: false,
           }}
           navigation={{
-            prevEl: ".swiper-button-prev-style-2",
-            nextEl: ".swiper-button-next-style-2",
+            prevEl: '.swiper-button-prev-style-2',
+            nextEl: '.swiper-button-next-style-2',
           }}
           breakpoints={{
             320: {
@@ -76,17 +75,23 @@ const TrendingTopic = () => {
               spaceBetween: 30,
             },
           }}
-          className="swiper-wrapper"
-        >
+          className="swiper-wrapper">
           {data.map((item, i) => (
             <SwiperSlide className="swiper-slide" key={i}>
               <div className="card-style-1">
                 <Link href="/blog-archive">
-                  <div className="card-image"><img src={`assets/imgs/page/homepage1/${item.img}`} alt="Genz" />
+                  <div className="card-image">
+                    <img
+                      src={`assets/imgs/page/homepage1/${item.img}`}
+                      alt="Phineas"
+                    />
                     <div className="card-info">
                       <div className="info-bottom">
                         <h6 className="color-white mb-5">{item.title}</h6>
-                        <p className="text-xs color-gray-500"> {item.article} Articles</p>
+                        <p className="text-xs color-gray-500">
+                          {' '}
+                          {item.article} Articles
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -103,4 +108,3 @@ const TrendingTopic = () => {
 };
 
 export default TrendingTopic;
-

@@ -12,20 +12,16 @@ const Footer = () => {
                 <Link
                   className="wow animate__animated animate__fadeInUp"
                   href="/">
-                  <img src="/assets/imgs/template/logo.svg" alt="Genz" />
+                  <img src="/assets/imgs/template/logo.svg" alt="Phineas" />
                 </Link>
                 <p className="mb-20 mt-20 text-sm color-gray-500 wow animate__animated animate__fadeInUp">
-                  When an unknown prnoto sans took a galley and scrambled it to
-                  make specimen book not only five When an unknown prnoto sans
-                  took a galley and scrambled it to five centurie.
+                  Sharing about technology and daily living
                 </p>
                 <h6 className="color-white mb-5 wow animate__animated animate__fadeInUp">
                   Address
                 </h6>
                 <p className="text-sm color-gray-500 wow animate__animated animate__fadeInUp">
-                  123 Main Street
-                  <br />
-                  New York, NY 10001
+                  Danang, Vienam
                 </p>
               </div>
               <div className="col-lg-4 mb-30">
@@ -141,14 +137,7 @@ const Footer = () => {
               <div className="row">
                 <div className="col-lg-5 text-center text-lg-start">
                   <p className="text-base color-white wow animate__animated animate__fadeIn">
-                    © 2023 Created by
-                    <Link
-                      className="copyright"
-                      href="http://alithemes.com"
-                      target="_blank">
-                      {' '}
-                      AliThemes.com
-                    </Link>
+                    © 2023 Created by Phineas
                   </p>
                 </div>
                 <div className="col-lg-7 text-center text-lg-end">

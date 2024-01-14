@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useState, useEffect, useContext, FC } from 'react';
 
 import { ChildProps } from '@/types/common';

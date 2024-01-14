@@ -1,5 +1,5 @@
 /***
- Theme Name: Genz
+ Theme Name: Phineas
  Description: Creative Personal Blog HTML Template
  Version: 3.0
  License: GNU General Public License v2 or later
@@ -28,48 +28,29 @@ TABLE CONTENT
 ***/
 
 // Configuration and helpers
-@import 'abstracts/variables',
-'abstracts/functions',
-'abstracts/mixins';
+@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
 // Vendors
 @import 'vendors/vendors-import';
 // Base stuff
-@import 'base/common',
-'base/animation',
-'base/typography';
+@import 'base/common', 'base/animation', 'base/typography';
 // Components
-@import 'components/buttons',
-'components/form',
-'components/slider',
-'components/card',
-'components/tabs',
-'components/misc',
-'components/sidebar',
-'components/banners';
+@import 'components/buttons', 'components/form', 'components/slider',
+  'components/card', 'components/tabs', 'components/misc', 'components/sidebar',
+  'components/banners';
 // Themes
 @import 'themes/default';
 // Layout-related sections
-@import 'layout/header',
-'layout/navigation',
-'layout/sidebar',
-'layout/footer',
-'layout/spacing';
+@import 'layout/header', 'layout/navigation', 'layout/sidebar', 'layout/footer',
+  'layout/spacing';
 // Page-specific styles
-@import 'pages/homepage1',
-'pages/homepage2',
-'pages/homepage3',
-'pages/contact',
-'pages/login',
-'pages/404',
-'pages/about',
-'pages/single',
-'pages/travel-tips';
+@import 'pages/homepage1', 'pages/homepage2', 'pages/homepage3', 'pages/contact',
+  'pages/login', 'pages/404', 'pages/about', 'pages/single', 'pages/travel-tips';
 // Responsive
 @import 'layout/responsive';
 @import 'layout/dark';
 
 .page-content {
-    p   {
-        margin-bottom: 15px;
-    }
+  p {
+    margin-bottom: 15px;
+  }
 }

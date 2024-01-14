@@ -80,7 +80,7 @@ const HotTopic = () => {
                             <div className="card-image">
                               <img
                                 src={`assets/imgs/page/categories/${item.imgBig}`}
-                                alt="Genz"
+                                alt="Phineas"
                               />
                               <div className="card-info">
                                 <div className="info-bottom">

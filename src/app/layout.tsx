@@ -5,7 +5,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import '@/assets/css/style.css';
+import { ThemeProvider } from '@/components/adapter/ThemeContext';
 import Layout from '@/components/layout/Layout';
+import PreLoader from '@/components/layout/Preloader';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Layout>{children}</Layout>
+        <PreLoader />
+        <ThemeProvider children={<Layout>{children}</Layout>} />
       </body>
     </html>
   );

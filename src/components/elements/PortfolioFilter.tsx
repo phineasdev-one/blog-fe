@@ -112,7 +112,7 @@ const PortfolioFilter: FC<Props> = ({ col, show }) => {
 
       <div className="mt-70 mb-50">
         <div className="row">
-          {projects.slice(0, show).map(item => (
+          {projects.slice(0, show).map((item) => (
             <div className={`col-lg-${col}`} key={item.name}>
               <div className="project" data-category="web motion">
                 <div className="item-content">
@@ -123,7 +123,7 @@ const PortfolioFilter: FC<Props> = ({ col, show }) => {
                       <Link className="link-post" href="#">
                         <img
                           src={`assets/imgs/page/about/${item.img}`}
-                          alt="Genz"
+                          alt="Phineas"
                         />
                         <div className="card-info card-bg-2">
                           <div className="info-bottom mb-15">

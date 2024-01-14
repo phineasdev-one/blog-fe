@@ -22,7 +22,7 @@ const RecentPosts3 = () => {
                       <Link href={`/blog/${item.id}`}>
                         <img
                           src={`/assets/imgs/page/homepage3/${item.img}`}
-                          alt="Genz"
+                          alt="Phineas"
                         />
                       </Link>
                     </div>
