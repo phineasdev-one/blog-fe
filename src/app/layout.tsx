@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import '@/assets/css/style.css';
+import '@/configs/lib/css/style.css';
 import { ThemeProvider } from '@/components/adapter/ThemeContext';
 import Layout from '@/components/layout/Layout';
 import PreLoader from '@/components/layout/Preloader';
