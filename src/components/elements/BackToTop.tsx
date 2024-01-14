@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 const BackToTop = () => {
   // State to manage the visibility of the scroll-to-top button
@@ -34,7 +34,10 @@ const BackToTop = () => {
   return (
     <>
       {isVisible && (
-        <a id="scrollUp" onClick={scrollToTop} style={{ position: 'fixed', zIndex: 2147483647 }}>
+        <a
+          id="scrollUp"
+          onClick={scrollToTop}
+          style={{ position: 'fixed', zIndex: 2147483647 }}>
           <i className="fi-rr-arrow-small-up" />
         </a>
       )}

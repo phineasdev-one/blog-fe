@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import categories from '@/data/mock/categories-data';
 
 const PopularCategories = () => {

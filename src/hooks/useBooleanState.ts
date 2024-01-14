@@ -10,7 +10,7 @@ export const useBooleanState = (initial = false) => {
 
   const setFalse = useCallback(() => setBoolean(false), []);
 
-  const toggle = useCallback(() => setBoolean(prev => !prev), []);
+  const toggle = useCallback(() => setBoolean((prev) => !prev), []);
 
   return Object.assign(
     [boolean, setTrue, setFalse, toggle] as const,

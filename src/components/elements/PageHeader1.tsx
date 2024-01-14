@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Breadcrumb from '@/components/elements/Breadcrumb';
 import { FC } from 'react';
+
+import Breadcrumb from '@/components/elements/Breadcrumb';
 
 type Props = {
   title: string;

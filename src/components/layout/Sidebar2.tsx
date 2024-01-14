@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import data from '@/data/mock/blog-data2';
 import comments from '@/data/mock/comments-data';
 import gallery from '@/data/mock/gallery-data';

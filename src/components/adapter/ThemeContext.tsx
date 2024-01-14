@@ -1,11 +1,19 @@
 'use client';
-import { createContext, useState, useEffect, useContext, FC } from 'react';
+import {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  FC,
+  SetStateAction,
+  Dispatch,
+} from 'react';
 
 import { ChildProps } from '@/types/common';
 
 type ContextProps = {
   isDarkMode: boolean;
-  setIsDarkMode: (value: boolean) => void;
+  setIsDarkMode: Dispatch<SetStateAction<boolean>>;
 };
 
 const ThemeContext = createContext({} as ContextProps);

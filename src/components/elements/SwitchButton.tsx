@@ -1,4 +1,4 @@
-import { useTheme } from '@/components/adapter/ThemeContext'
+import { useTheme } from '@/components/adapter/ThemeContext';
 
 const ThemeSwitch = () => {
   const { isDarkMode, setIsDarkMode } = useTheme();

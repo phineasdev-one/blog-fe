@@ -65,7 +65,7 @@ function generateClient(host: string) {
         },
         cancelToken: options?.cancelToken,
       })
-      .then(response => response.data);
+      .then((response) => response.data);
   }
 
   /**
@@ -88,7 +88,7 @@ function generateClient(host: string) {
         },
         cancelToken: options?.cancelToken,
       })
-      .then(response => response.data);
+      .then((response) => response.data);
   }
 
   /**
@@ -111,7 +111,7 @@ function generateClient(host: string) {
         },
         cancelToken: options?.cancelToken,
       })
-      .then(response => response.data);
+      .then((response) => response.data);
   }
 
   /**
@@ -134,7 +134,7 @@ function generateClient(host: string) {
         },
         cancelToken: options?.cancelToken,
       })
-      .then(response => response.data);
+      .then((response) => response.data);
   }
 
   /**
@@ -155,7 +155,7 @@ function generateClient(host: string) {
         },
         cancelToken: options?.cancelToken,
       })
-      .then(response => response.data);
+      .then((response) => response.data);
   }
 
   return {

@@ -19,37 +19,34 @@
 }
 
 .checkmark {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    background-color: $background-white;
-    border: 2px solid $color-gray-200;
-    border-radius: 4px;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: $background-white;
+  border: 2px solid $color-gray-200;
+  border-radius: 4px;
 }
 .cb-container input:checked ~ .checkmark {
   border: 2px solid $color-brand-2;
 }
-.cb-container .text-small
-{
-	color: $color-gray-500;
+.cb-container .text-small {
+  color: $color-gray-500;
 }
-.cb-container input:checked ~ .text-small
-{
-	color: $color-gray-900;
+.cb-container input:checked ~ .text-small {
+  color: $color-gray-900;
 }
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
 .cb-container input:checked ~ .checkmark:after {
   display: block;
 }
-.cb-container input:checked ~ .text-lbl
-{
-	color: $color-gray-900;
+.cb-container input:checked ~ .text-lbl {
+  color: $color-gray-900;
 }
 .cb-container .checkmark:after {
   left: -1px;
@@ -80,29 +77,28 @@
 }
 
 .checkmark {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    background-color: $background-white;
-    border: 1px solid $color-gray-900;
-    border-radius: 0px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: $background-white;
+  border: 1px solid $color-gray-900;
+  border-radius: 0px;
 }
 .cb-container-2 input:checked ~ .checkmark {
   border: 1px solid $color-gray-900;
 }
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
 .cb-container-2 input:checked ~ .checkmark:after {
   display: block;
 }
-.cb-container-2 input:checked ~ .text-lbl
-{
-	color: $color-gray-900;
+.cb-container-2 input:checked ~ .text-lbl {
+  color: $color-gray-900;
 }
 .cb-container-2 .checkmark:after {
   left: 0px;
@@ -117,7 +113,8 @@
   line-height: 18px;
 }
 
-.input-name, .input-email {
+.input-name,
+.input-email {
   border: 0px;
   padding: 12px 12px 12px 20px;
   border-bottom-width: 1px;

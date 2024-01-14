@@ -25,7 +25,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
       // If the current key does not match, set the active status to true and update the key
       setIsActive({
         status: true,
-        key: key,
+        key,
       });
     }
   };
@@ -56,7 +56,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                   <ul className="mobile-menu font-heading">
                     <li
                       className={
-                        isActive.key == 1
+                        isActive.key === 1
                           ? 'has-children active'
                           : 'has-children'
                       }
@@ -67,7 +67,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                       <Link href="/">Home</Link>
                       <ul
                         className={
-                          isActive.key == 1
+                          isActive.key === 1
                             ? 'sub-menu d-block'
                             : 'sub-menu d-none'
                         }>
@@ -87,7 +87,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                     </li>
                     <li
                       className={
-                        isActive.key == 2
+                        isActive.key === 2
                           ? 'has-children active'
                           : 'has-children'
                       }
@@ -98,7 +98,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                       <Link href="/#">Category</Link>
                       <ul
                         className={
-                          isActive.key == 2
+                          isActive.key === 2
                             ? 'sub-menu d-block'
                             : 'sub-menu d-none'
                         }>
@@ -121,7 +121,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                     </li>
                     <li
                       className={
-                        isActive.key == 3
+                        isActive.key === 3
                           ? 'has-children active'
                           : 'has-children'
                       }
@@ -132,7 +132,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                       <Link href="/#">Single Post</Link>
                       <ul
                         className={
-                          isActive.key == 3
+                          isActive.key === 3
                             ? 'sub-menu d-block'
                             : 'sub-menu d-none'
                         }>
@@ -149,7 +149,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                     </li>
                     <li
                       className={
-                        isActive.key == 5
+                        isActive.key === 5
                           ? 'has-children active'
                           : 'has-children'
                       }
@@ -162,7 +162,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                       </Link>
                       <ul
                         className={
-                          isActive.key == 5
+                          isActive.key === 5
                             ? 'sub-menu d-block'
                             : 'sub-menu d-none'
                         }>
@@ -191,7 +191,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                     </li>
                     <li
                       className={
-                        isActive.key == 4
+                        isActive.key === 4
                           ? 'has-children active'
                           : 'has-children'
                       }
@@ -202,7 +202,7 @@ const MobileMenu: FC<Props> = ({ openClass }) => {
                       <Link href="/#">Pages</Link>
                       <ul
                         className={
-                          isActive.key == 4
+                          isActive.key === 4
                             ? 'sub-menu d-block'
                             : 'sub-menu d-none'
                         }>

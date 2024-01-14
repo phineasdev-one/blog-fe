@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import data from '@/data/mock/blog-data2';
+
 import Pagination from '@/components/elements/Pagination';
+import data from '@/data/mock/blog-data2';
 
 const RecentPosts2 = () => {
   return (

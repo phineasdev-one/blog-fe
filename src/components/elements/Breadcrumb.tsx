@@ -1,6 +1,7 @@
-import { ChildProps } from '@/types/common';
 import Link from 'next/link';
 import { FC } from 'react';
+
+import { ChildProps } from '@/types/common';
 
 const Breadcrumb: FC<ChildProps & { title: string }> = ({ title }) => {
   return (

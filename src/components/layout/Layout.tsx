@@ -1,11 +1,12 @@
 'use client';
 
+import { FC, useState } from 'react';
+
 import BackToTop from '@/components/elements/BackToTop';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import MobileMenu from '@/components/layout/MobileMenu';
 import { ChildProps } from '@/types/common';
-import { FC, useState } from 'react';
 
 const Layout: FC<ChildProps> = ({ children }) => {
   const [openClass, setOpenClass] = useState('');
