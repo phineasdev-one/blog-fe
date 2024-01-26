@@ -3,6 +3,7 @@ import SwiperCore, { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 SwiperCore.use([Autoplay, Navigation]);
+
 const Brand = () => {
   const data = [
     {

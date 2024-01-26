@@ -49,7 +49,7 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
                 </li>
                 <li className="has-children">
                   <Link className="color-gray-500" href="#">
-                    Category
+                    Categories
                   </Link>
                   <ul className="sub-menu two-col">
                     <li>
@@ -78,11 +78,6 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
                       </Link>
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <Link className="color-gray-500" href="#">
-                    Blogs
-                  </Link>
                 </li>
                 <li>
                   <Link className="color-gray-500" href="/contact">

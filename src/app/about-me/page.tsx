@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import React from 'react';
 
+export const metadata = {
+  title: 'About me',
+  description: 'The best blog app!',
+  icons: {
+    icon: './favicon.ico',
+  },
+};
+
 const PortfolioDetails = () => {
   return (
     <div className="cover-home3">
@@ -10,7 +18,7 @@ const PortfolioDetails = () => {
           <div className="col-xl-10 col-lg-12">
             <div className="row mt-50 align-items-end">
               <div className="col-lg-8 m-auto text-center">
-                <h2 className="color-linear">Business Card</h2>
+                <h2 className="color-linear">Business</h2>
               </div>
             </div>
             <div className="row mt-30 mb-50">

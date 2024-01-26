@@ -5,16 +5,19 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import '@/configs/lib/css/style.css';
-import { ThemeProvider } from '@/components/adapter/ThemeContext';
 import Layout from '@/components/layout/Layout';
 import PreLoader from '@/components/layout/Preloader';
-
-const inter = Inter({ subsets: ['latin'] });
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata = {
-  title: 'Blog App',
+  title: 'Phineas blog',
   description: 'The best blog app!',
+  icons: {
+    icon: './favicon.ico',
+  },
 };
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -25,7 +28,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <PreLoader />
-        <ThemeProvider children={<Layout>{children}</Layout>} />
+        <ThemeProvider>
+          <Layout>{children}</Layout>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 
+import { useTheme } from '@/context/ThemeContext';
+
 const Footer = () => {
+  const { isDarkMode } = useTheme();
+
   return (
     <>
       <footer className="footer">
@@ -12,7 +16,14 @@ const Footer = () => {
                 <Link
                   className="wow animate__animated animate__fadeInUp"
                   href="/">
-                  <img src="/assets/imgs/template/logo.svg" alt="Phineas" />
+                  <img
+                    src={`${
+                      !isDarkMode
+                        ? '/assets/imgs/template/logo.svg'
+                        : '/assets/imgs/template/logo-day.svg'
+                    } `}
+                    alt="Phineas"
+                  />
                 </Link>
                 <p className="mb-20 mt-20 text-sm color-gray-500 wow animate__animated animate__fadeInUp">
                   Sharing about technology and daily living

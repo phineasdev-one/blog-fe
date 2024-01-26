@@ -1,4 +1,4 @@
-import Sidebar from '@/components/layout/Sidebar';
+import Sidebar2 from '@/components/layout/Sidebar2';
 import EditorPicked from '@/components/sections/EditorPicked';
 import Hero1 from '@/components/sections/Hero1';
 import PopularCategories from '@/components/sections/PopularCategories';
@@ -22,7 +22,7 @@ export default function Home() {
                 <RecentPosts />
               </div>
               <div className="col-lg-4">
-                <Sidebar />
+                <Sidebar2 />
               </div>
             </div>
           </div>
