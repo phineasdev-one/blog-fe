@@ -1,0 +1,37 @@
+/* styles/ImageWithLoading.module.css */
+
+.image-with-loading {
+  position: relative;
+  display: inline-block;
+}
+
+.skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  /* Skeleton background color */
+  animation: loadingAnimation 1.5s infinite ease-in-out;
+  /* Optional: Loading animation */
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}

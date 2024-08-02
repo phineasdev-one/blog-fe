@@ -1,0 +1,302 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@3.0.0
+  slack: circleci/slack@4.8.1
+  docker: circleci/docker@1.4.0
+jobs:
+  build-and-push: #Đặt tên job
+    docker:
+      - image: cimg/node:18.20.0
+    environment: #Tạo biến global
+      DOCKER_IMAGE: phianhdev/blog-fe
+      DOCKER_TAG: latest
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - node/install-packages
+      - run:
+          name: Run tests
+          command: |
+            npm run test
+      - docker/check:
+          docker-username: DOCKER_USER
+          docker-password: DOCKER_PASSWORD
+      - docker/build:
+          image: $DOCKER_IMAGE
+          tag: $DOCKER_TAG
+      - docker/push:
+          digest-path: /tmp/digest.txt
+          image: $DOCKER_IMAGE
+          tag: $DOCKER_TAG
+      - run:
+          command: |
+            echo "Digest is: $(</tmp/digest.txt)"
+      - slack/notify:
+          event: fail
+          custom: |
+            {
+              "attachments": [
+                {
+                  "color": "#f44336",
+                  "blocks": [
+                    {
+                      "type": "header",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Test failed! :x:",
+                        "emoji": true
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Project: *\n${CIRCLE_PROJECT_REPONAME}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Job: *\n${CIRCLE_JOB}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Branch: *\n${CIRCLE_BRANCH}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Author: *\n${CIRCLE_USERNAME}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "actions",
+                      "elements": [
+                        {
+                          "type": "button",
+                          "text": {
+                            "type": "plain_text",
+                            "text": "View Job :eyes:",
+                            "emoji": true
+                          },
+                          "url": "${CIRCLE_BUILD_URL}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+      - slack/notify:
+          event: pass
+          custom: |
+            {
+              "attachments": [
+                {
+                  "color": "#4caf50",
+                  "blocks": [
+                    {
+                      "type": "header",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "All tests passed! :tada:",
+                        "emoji": true
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Project: *\n${CIRCLE_PROJECT_REPONAME}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Job: *\n${CIRCLE_JOB}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Branch: *\n${CIRCLE_BRANCH}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Author: *\n${CIRCLE_USERNAME}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "actions",
+                      "elements": [
+                        {
+                          "type": "button",
+                          "text": {
+                            "type": "plain_text",
+                            "text": "View Job :eyes:",
+                            "emoji": true
+                          },
+                          "url": "${CIRCLE_BUILD_URL}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+
+  deploy:
+    executor: docker/docker
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - FINGER_PRINT
+      - run:
+          name: Debug Environment Variables
+          command: |
+            echo "USERNAME: $USERNAME"
+            echo "IP_ADDRESS: $IP_ADDRESS"
+      - run:
+          name: Deploy to VPS
+          command: ssh -oStrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "cd projects/blog-fe && sh -x deploy.sh"
+      - slack/notify:
+          event: fail
+          custom: |
+            {
+              "attachments": [
+                {
+                  "color": "#f44336",
+                  "blocks": [
+                    {
+                      "type": "header",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Test failed! :x:",
+                        "emoji": true
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Project: *\n${CIRCLE_PROJECT_REPONAME}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Job: *\n${CIRCLE_JOB}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Branch: *\n${CIRCLE_BRANCH}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Author: *\n${CIRCLE_USERNAME}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "actions",
+                      "elements": [
+                        {
+                          "type": "button",
+                          "text": {
+                            "type": "plain_text",
+                            "text": "View Job :eyes:",
+                            "emoji": true
+                          },
+                          "url": "${CIRCLE_BUILD_URL}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+      - slack/notify:
+          event: pass
+          custom: |
+            {
+              "attachments": [
+                {
+                  "color": "#4caf50",
+                  "blocks": [
+                    {
+                      "type": "header",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Deploy production successfully! :tada:",
+                        "emoji": true
+                      }
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Project: *\n${CIRCLE_PROJECT_REPONAME}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Job: *\n${CIRCLE_JOB}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Branch: *\n${CIRCLE_BRANCH}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Author: *\n${CIRCLE_USERNAME}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "actions",
+                      "elements": [
+                        {
+                          "type": "button",
+                          "text": {
+                            "type": "plain_text",
+                            "text": "View Job :eyes:",
+                            "emoji": true
+                          },
+                          "url": "${CIRCLE_BUILD_URL}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+
+workflows:
+  my-pipeline: #Đặt tên workflows và chạy job nào
+    jobs:
+      - build-and-push:
+          filters:
+            branches:
+              only:
+                - develop
+      - deploy:
+          requires:
+            - build-and-push

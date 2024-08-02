@@ -1,0 +1,96 @@
+{
+  "page": {
+    "home": {
+      "hero": {
+        "title": "Xin chào!",
+        "me": "Mình là",
+        "description": "Cảm ơn mọi người đã dành thời gian ghé thăm!"
+      },
+      "hotTopic": {
+        "title": "Chủ đề nóng",
+        "description": "Đừng bỏ lỡ những tin tức mới nhất về cẩm nang code, các công nghệ, cuộc sống..."
+      },
+      "editorPicked": {
+        "title": "Bài viết nổi bật",
+        "description": "Các bài viết nổi bật mà admin chọn"
+      },
+      "popularTag": {
+        "title": "Thẻ danh mục nổi bật",
+        "description": "Thẻ danh mục được đề xuất"
+      },
+      "recentPost": {
+        "title": "Bài đăng gần đây",
+        "description": "Đừng bỏ lỡ tin tức gần đây"
+      }
+    },
+    "aboutMe": {
+      "title": "Về tôi",
+      "content1": "Mình là Trần Phi Anh. ",
+      "content2": "Là 1 lập trình viên tại Đà Nẵng với hơn 2 năm kinh nghiệm làm việc trong lĩnh vực phát triển ứng dụng, website.",
+      "project": {
+        "title": "Các dự án nổi bật",
+        "akadev": {
+          "name": "Akadev IDE Low-code",
+          "role": "Developer & User IT",
+          "description": "IDE low-code cho phép người dùng tạo ra website, mobile của họ 1 cách nhanh chóng."
+        },
+        "symliv": {
+          "name": "Symliv",
+          "role": "Developer",
+          "description": "Công cụ quản lý khu đô thị."
+        },
+        "aljaro": {
+          "name": "Aljaro",
+          "role": "Developer",
+          "description": "Website bán hàng, quà tặng, tuỳ chỉnh quà tặng theo sở thích cho người Nhật"
+        },
+        "mypGold": {
+          "name": "MYP Gold",
+          "role": "Developer",
+          "description": "Ứng dụng mobile giúp người dùng theo dõi giá vàng, gửi tiết kiệm và trả lãi."
+        }
+      },
+      "experience": {
+        "title": "Kinh nghiệm làm việc",
+        "download": "Tải xuống CV"
+      }
+    },
+    "contact": {
+      "title": "Liên hệ"
+    },
+    "notFound": {
+      "title": "Đừng lo lắng!",
+      "description": "Không tìm thấy trang mà bạn đang tìm kiếm, nhấp vào bên dưới để trở lại trang chính"
+    }
+  },
+
+  "ui": {
+    "button": {
+      "readMore": "Đọc thêm",
+      "showMore": "Hiển thị thêm",
+      "login": "Đăng nhập"
+    },
+    "post": {
+      "durationTime": "{time} phút đọc"
+    },
+    "category": {
+      "title": "Danh mục"
+    },
+    "header": {
+      "home": "Trang chủ",
+      "aboutMe": "Về tôi",
+      "blog": "Bài viết",
+      "contact": "Liên hệ"
+    },
+    "footer": {
+      "description": "Chia sẻ kiến thức lập trình, cuộc sống...",
+      "address": "Địa chỉ",
+      "createdBy": "© 2024 tạo bởi Phineas",
+      "newsletter": "Tin tức",
+      "newsletterDescription": "Đăng ký để nhận tin tức mới nhất",
+      "name": "Tên của bạn",
+      "email": "Email",
+      "subscribe": "Đăng ký"
+    }
+  }
+}
