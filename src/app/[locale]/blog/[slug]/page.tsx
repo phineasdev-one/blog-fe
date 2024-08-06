@@ -107,7 +107,7 @@ const BlogDetailScreen: FC<Props> = async ({ params }) => {
                 </div>
                 <SingleContent
                   content={postDetail.content}
-                  tags={postDetail?.tags ?? []}
+                  tags={postDetail.tags ?? []}
                 />
                 <Comments />
               </div>
