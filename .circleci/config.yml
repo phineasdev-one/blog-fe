@@ -167,7 +167,7 @@ jobs:
             echo "IP_ADDRESS: $IP_ADDRESS"
       - run:
           name: Deploy to VPS
-          command: ssh -oStrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "cd projects/blog-fe && sh -x deploy.sh"
+          command: ssh -oStrictHostKeyChecking=no $USERNAME@$IP_ADDRESS "cd projects/blog-fe && bash -x deploy.sh"
       - slack/notify:
           event: fail
           custom: |
