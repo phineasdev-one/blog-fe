@@ -53,7 +53,7 @@ export default async function Home() {
             <PopularCategories tags={tags} />
             <div className="row mt-70">
               <div className="col-lg-8">
-                <RecentPosts posts={postResponse?.items} />
+                <RecentPosts posts={postResponse.items} />
               </div>
               <div className="col-lg-4">
                 <Sidebar2 categories={categories} />
