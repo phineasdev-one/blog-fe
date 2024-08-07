@@ -1,15 +1,24 @@
 version: '3.8'
 
 services:
-  client:
+  client-blue:
     image: phianhdev/blog-fe:latest
-    container_name: Blog-FE
-    build: .
+    container_name: Blog-FE-Blue
     environment:
       - TZ=Asia/Ho_Chi_Minh
     restart: unless-stopped
     labels:
       io.portainer.accesscontrol.users: admin
+
+  client-green:
+    image: phianhdev/blog-fe:latest
+    container_name: Blog-FE-Green
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    restart: unless-stopped
+    labels:
+      io.portainer.accesscontrol.users: admin
+
   nginx:
     container_name: Blog-Nginx-Client
     build: ./nginx
@@ -21,4 +30,5 @@ services:
     labels:
       io.portainer.accesscontrol.users: admin
     depends_on:
-      - client
+      - client-blue
+      - client-green

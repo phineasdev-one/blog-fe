@@ -1,63 +1,37 @@
 #!/bin/bash
 
-# Define the service names
-SERVICES=(
-    "client"
-    "nginx"
-)
+# Determine which environment is currently running
+CURRENT=$(docker-compose ps -q client-blue)
 
-# Generate a temporary docker-compose file with new container names
-generate_temp_compose_file() {
-    cp docker-compose.yml docker-compose.temp.yml
-    for SERVICE in "${SERVICES[@]}"; do
-        sed -i "s/container_name: Blog-FE/container_name: Blog-FE-new/g" docker-compose.temp.yml
-        sed -i "s/container_name: Blog-Nginx-Client/container_name: Blog-Nginx-Client-new/g" docker-compose.temp.yml
-    done
-    echo "Temporary docker-compose file generated:"
-    cat docker-compose.temp.yml
-}
+if [ -n "$CURRENT" ]; then
+  ACTIVE="client-blue"
+  IDLE="client-green"
+else
+  ACTIVE="client-green"
+  IDLE="client-blue"
+fi
 
-# Deploy new containers
-deploy_new_containers() {
-    echo "Deploying new containers..."
-    docker compose -f docker-compose.temp.yml up -d --build
-}
+# Deploy the new version to the idle environment
+docker-compose stop $IDLE
+docker-compose rm -f $IDLE
+docker-compose pull $IDLE
+docker-compose up -d $IDLE
 
-# Verify new containers are running correctly
-verify_new_containers() {
-    for SERVICE in "${SERVICES[@]}"; do
-        NEW_CONTAINER_NAME="${SERVICE}-new"
-        STATUS=$(docker inspect -f '{{.State.Status}}' $NEW_CONTAINER_NAME || echo "not found")
-        if [ "$STATUS" != "running" ]; then
-            echo "Error: $NEW_CONTAINER_NAME is not running. Current status: $STATUS"
-            exit 1
-        fi
-    done
-}
+# Wait for the new version to start
+echo "Waiting for $IDLE to start..."
+sleep 30  # Adjust as needed to ensure the new container is up and running
 
-# Switch traffic to the new containers
-switch_traffic() {
-    for SERVICE in "${SERVICES[@]}"; do
-        OLD_CONTAINER_NAME="${SERVICE}"
-        NEW_CONTAINER_NAME="${SERVICE}-new"
-        docker rename $OLD_CONTAINER_NAME "${OLD_CONTAINER_NAME}-old"
-        docker rename $NEW_CONTAINER_NAME $OLD_CONTAINER_NAME
-    done
-}
+# Perform health checks here if necessary
 
-# Remove old containers
-remove_old_containers() {
-    for SERVICE in "${SERVICES[@]}"; do
-        docker rm -f "${SERVICE}-old"
-    done
-}
+# Switch the load balancer to the idle environment
+echo "Switching to $IDLE..."
+docker-compose exec nginx /bin/sh -c "
+  sed -i 's/$ACTIVE/$IDLE/g' /etc/nginx/conf.d/default.conf
+  nginx -s reload
+"
 
-# Main deployment flow
-generate_temp_compose_file
-deploy_new_containers
-verify_new_containers
-switch_traffic
-remove_old_containers
+# Stop and remove the old environment
+docker-compose stop $ACTIVE
+docker-compose rm -f $ACTIVE
 
-# Clean up
-rm -f docker-compose.temp.yml
+echo "Deployment complete. Active environment is now $IDLE."
