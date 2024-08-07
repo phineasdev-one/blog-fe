@@ -1,5 +1,9 @@
 version: '3.3'
 
+networks:
+  blog-fe-network:
+    driver: bridge
+
 services:
   client-blue:
     image: phianhdev/blog-fe:latest
@@ -9,6 +13,8 @@ services:
     restart: unless-stopped
     labels:
       io.portainer.accesscontrol.users: admin
+    networks:
+      - blog-fe-network
 
   client-green:
     image: phianhdev/blog-fe:latest
@@ -18,6 +24,8 @@ services:
     restart: unless-stopped
     labels:
       io.portainer.accesscontrol.users: admin
+    networks:
+      - blog-fe-network
 
   nginx:
     container_name: Blog-Nginx-Client
@@ -32,3 +40,5 @@ services:
     depends_on:
       - client-blue
       - client-green
+    networks:
+      - blog-fe-network
