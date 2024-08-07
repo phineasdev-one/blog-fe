@@ -1,32 +1,15 @@
-version: '3.3'
-
-networks:
-  blog-fe-network:
-    driver: bridge
+version: '3.8'
 
 services:
-  client-blue:
+  client:
     image: phianhdev/blog-fe:latest
-    container_name: Blog-FE-Blue
+    container_name: Blog-FE
+    build: .
     environment:
       - TZ=Asia/Ho_Chi_Minh
     restart: unless-stopped
     labels:
       io.portainer.accesscontrol.users: admin
-    networks:
-      - blog-fe-network
-
-  client-green:
-    image: phianhdev/blog-fe:latest
-    container_name: Blog-FE-Green
-    environment:
-      - TZ=Asia/Ho_Chi_Minh
-    restart: unless-stopped
-    labels:
-      io.portainer.accesscontrol.users: admin
-    networks:
-      - blog-fe-network
-
   nginx:
     container_name: Blog-Nginx-Client
     build: ./nginx
@@ -38,7 +21,4 @@ services:
     labels:
       io.portainer.accesscontrol.users: admin
     depends_on:
-      - client-blue
-      - client-green
-    networks:
-      - blog-fe-network
+      - client
