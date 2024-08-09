@@ -1,9 +1,9 @@
-/* styles/ImageWithLoading.module.css */
+/* components/ImageWithSkeleton.module.css */
 
-.wrapper {
+.imageWrapper {
   position: relative;
-  display: inline-block;
   width: 100%;
+  height: 100%;
 }
 
 .skeleton {
@@ -12,27 +12,32 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f0f0f0;
-  /* Skeleton background color */
-  animation: loadingAnimation 1.5s infinite ease-in-out;
-  /* Optional: Loading animation */
+  background-color: #e0e0e0;
+  animation: skeleton-loading 1.5s infinite;
 }
 
-.skeletonImage {
-  width: 100%;
-  height: 100%;
-}
-
-@keyframes loadingAnimation {
+@keyframes skeleton-loading {
   0% {
-    opacity: 0.7;
+    background-color: #e0e0e0;
   }
 
   50% {
-    opacity: 1;
+    background-color: #f5f5f5;
   }
 
   100% {
-    opacity: 0.7;
+    background-color: #e0e0e0;
   }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image.loaded {
+  opacity: 1;
 }

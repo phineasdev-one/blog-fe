@@ -1,26 +1,30 @@
 'use client';
-import React, { useState, useRef, useEffect, CSSProperties } from 'react';
+import React, {
+  useState,
+  FC,
+  ImgHTMLAttributes,
+  useEffect,
+  useRef,
+} from 'react';
 
 import styles from './SkeletonLoader.module.css';
 
-type ImageWithSkeletonProps = {
+interface ImageWithSkeletonProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
-  className?: string;
-  style?: CSSProperties;
-};
+}
 
-const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
+const ImageWithSkeleton: FC<ImageWithSkeletonProps> = ({
   src,
   alt,
   className,
-  style,
   ...props
 }) => {
   const [loaded, setLoaded] = useState(false);
-  const imageRef = useRef<HTMLImageElement | null>(null);
 
-  const handleLoad = () => setLoaded(true);
+  const handleImageLoad = () => setLoaded(true);
+
+  const imageRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     if (imageRef.current && imageRef.current.complete) {
@@ -29,21 +33,15 @@ const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
   }, []);
 
   return (
-    <div className={`${styles.wrapper} ${className}`}>
-      {!loaded && (
-        <div className={styles.skeleton}>
-          <div className={styles.skeletonImage}></div>
-        </div>
-      )}
-
+    <div className={`${styles.imageWrapper} ${className}`}>
+      {!loaded && <div className={styles.skeleton}></div>}
       <img
+        ref={imageRef}
         src={src}
         alt={alt}
+        className={`${styles.image} ${loaded ? styles.loaded : ''}`}
+        onLoad={handleImageLoad}
         {...props}
-        ref={imageRef}
-        onLoad={handleLoad}
-        style={{ display: loaded ? 'block' : 'none', ...style }}
-        className={className}
       />
     </div>
   );
