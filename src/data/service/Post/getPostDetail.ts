@@ -9,7 +9,7 @@ export const getPostDetail = (request: {
   return httpFetch.get({
     endpoint: API_ENDPOINT,
     request,
-    cache: 'force-cache',
+    cache: 'no-store',
     next: { revalidate: 120 },
   });
 };

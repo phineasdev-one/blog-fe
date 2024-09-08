@@ -1834,7 +1834,8 @@ input {
   display: flex;
   width: 100%;
   margin-bottom: 60px;
-  gap: 16px
+  gap: 16px;
+  align-items: center;
 }
 
 .card-list-posts:hover h5.color-white {
