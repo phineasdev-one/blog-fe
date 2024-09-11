@@ -1,7 +1,7 @@
-'use client'
-import { assertNotNull } from '@/utils/assertion';
+'use client';
 import { ReactNode, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { assertNotNull } from '@/utils/assertion';
 
 type Props = {
     id?: string;
@@ -11,11 +11,14 @@ type Props = {
 /** Portal component */
 export const Portal: React.FC<Props> = ({ id, children }) => {
     const [isClient, setIsClient] = useState(false);
+
     useEffect(() => {
-        if (typeof window !== undefined) {
+        // Correct use of typeof
+        if (typeof window !== 'undefined') {
             setIsClient(true);
         }
     }, [isClient]);
+
     if (!isClient || !id) {
         return null;
     }

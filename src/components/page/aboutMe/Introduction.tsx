@@ -17,7 +17,6 @@ const Introduction = () => {
           className="img-bdrd-16 banner-intro"
           src="../assets/imgs/page/portfolio/portfolio-2.jpg"
           alt="Phieas"
-          
         />
         {/* <img
           className="img-bdrd-16"
