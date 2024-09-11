@@ -1,10 +1,15 @@
+'use client'
+
 import { useTranslations } from 'next-intl';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ImageWithSkeleton from '@/components/elements/Image';
+import { Portal } from '@/components/elements/Portal';
 
 const WorkingProject = () => {
   const t = useTranslations();
+
+  const [showMessage, setShowMessage] = useState(false);
 
   const projectList = [
     {
@@ -13,6 +18,7 @@ const WorkingProject = () => {
       role: t('page.aboutMe.project.akadev.role'),
       description: t('page.aboutMe.project.akadev.description'),
       year: '2021',
+      url: "https://www.youtube.com/watch?v=YdXImaUvDtc",
     },
     {
       projectName: t('page.aboutMe.project.symliv.name'),
@@ -20,6 +26,7 @@ const WorkingProject = () => {
       role: t('page.aboutMe.project.symliv.role'),
       description: t('page.aboutMe.project.symliv.description'),
       year: '2022',
+      url: 'https://symliv.com/'
     },
     {
       projectName: t('page.aboutMe.project.aljaro.name'),
@@ -27,6 +34,7 @@ const WorkingProject = () => {
       role: t('page.aboutMe.project.aljaro.role'),
       description: t('page.aboutMe.project.aljaro.description'),
       year: '2023',
+      url: 'https://aljaro.jp/'
     },
     {
       projectName: t('page.aboutMe.project.mypGold.name'),
@@ -34,6 +42,7 @@ const WorkingProject = () => {
       role: t('page.aboutMe.project.mypGold.role'),
       description: t('page.aboutMe.project.mypGold.description'),
       year: '2024',
+      url: 'https://apps.apple.com/th/app/myp/id6483687766'
     },
     {
       projectName: 'Travel together',
@@ -42,8 +51,25 @@ const WorkingProject = () => {
       description:
         'Ứng dụng mobile, website kết nối tour du lịch, ghép đôi du lịch',
       year: '2022',
+      url: ''
     },
   ];
+
+  const handleRedirect = (url: string) => {
+    if (!url) {
+      setShowMessage(true);
+      return;
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMessage(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [showMessage]);
 
   return (
     <div className="content-detail">
@@ -53,7 +79,7 @@ const WorkingProject = () => {
       <div className="mt-50 mb-50">
         <div className="row mt-50 mb-10">
           {projectList.map((project, index) => (
-            <div className="col-lg-6" key={index}>
+            <div className="col-lg-6 pointer" key={index} onClick={() => handleRedirect(project.url)}>
               <div className="card-blog-1 hover-up wow animate__animated animate__fadeIn">
                 <div className="card-image mb-30 img-fluid">
                   {/* <img
@@ -83,11 +109,21 @@ const WorkingProject = () => {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {
+        showMessage && <Portal id="message">
+          <div className="message">
+            <p>Trang web này không được quyền chia sẻ chi tiết về nó</p>
+          </div>
+        </Portal>
+      }
+
     </div>
   );
 };

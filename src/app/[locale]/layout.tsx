@@ -52,6 +52,8 @@ export default function RootLayout({
             <Layout>{children}</Layout>
           </ThemeProvider>
         </NextIntlClientProvider>
+        {/* Using with portal */}
+        <div id="message" />
       </body>
     </html>
   );

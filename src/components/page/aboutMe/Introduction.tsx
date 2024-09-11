@@ -14,9 +14,10 @@ const Introduction = () => {
       </p>
       <div className="row mt-20 wow animate__animated animate__fadeIn">
         <ImageWithSkeleton
-          className="img-bdrd-16"
+          className="img-bdrd-16 banner-intro"
           src="../assets/imgs/page/portfolio/portfolio-2.jpg"
           alt="Phieas"
+          
         />
         {/* <img
           className="img-bdrd-16"

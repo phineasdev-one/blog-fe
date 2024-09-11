@@ -7900,3 +7900,37 @@ table tr:nth-child(2n) {
 table {
   min-width: 50%;
 }
+
+.banner-intro {
+  img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.message {
+  color: red;
+  padding-top: 5px;
+  font-size: 14px;
+
+  p {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+  }
+}
+
+#message {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
