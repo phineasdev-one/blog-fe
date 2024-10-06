@@ -3,6 +3,8 @@ import Sidebar2 from '@/components/layout/Sidebar2';
 import BlogList from '@/components/page/blog/BlogList';
 import { DEFAULT_PAGE } from '@/constant/pagination';
 import { getCategories } from '@/data/service/Category/getCategory';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 export const metadata = {
   title: 'Blogs',
@@ -44,7 +46,9 @@ const Page = async ({
           <div className="col-xl-10 col-lg-12">
             <div className="box-list-posts mt-40">
               <div className="row">
-                <BlogList postResponse={postResponse} />
+                <Suspense fallback={<Loading />}>
+                  <BlogList postResponse={postResponse} />
+                </Suspense>
                 <div className="col-lg-4">
                   <Sidebar2 categories={categories} />
                 </div>

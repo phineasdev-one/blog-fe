@@ -45,18 +45,27 @@ export default async function Home() {
             <Suspense fallback={<p>Loading.....</p>}>
               <Hero1 />
             </Suspense>
-            <HotTopic categories={categories} />
-            <EditorPicked
-              postsInitial={postResponse.items}
-              metaInfo={postResponse.meta}
-            />
-            <PopularCategories tags={tags} />
+            <Suspense fallback={<p>Loading.....</p>}>
+              <HotTopic categories={categories} />
+            </Suspense>
+            <Suspense fallback={<p>Loading.....</p>}>
+              <EditorPicked
+                postsInitial={postResponse.items}
+                metaInfo={postResponse.meta}
+              /></Suspense>
+            <Suspense fallback={<p>Loading.....</p>}>
+              <PopularCategories tags={tags} />
+            </Suspense>
             <div className="row mt-70">
               <div className="col-lg-8">
-                <RecentPosts posts={postResponse?.items} />
+                <Suspense fallback={<p>Loading.....</p>}>
+                  <RecentPosts posts={postResponse?.items} />
+                </Suspense>
               </div>
               <div className="col-lg-4">
-                <Sidebar2 categories={categories} />
+                <Suspense fallback={<p>Loading.....</p>}>
+                  <Sidebar2 categories={categories} />
+                </Suspense>
               </div>
             </div>
           </div>

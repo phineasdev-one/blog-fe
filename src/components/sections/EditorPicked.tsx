@@ -9,6 +9,7 @@ import ImageWithSkeleton from '@/components/elements/Image';
 import { Post } from '@/data/model/Post/post';
 import { ApiMeta } from '@/types/common';
 import { Link } from '@/utils/navigate';
+import LoadingText from '../elements/LoadingText';
 
 type Props = {
   postsInitial: Post[];
@@ -20,14 +21,22 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
 
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState(postsInitial);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLoadPost = async () => {
-    const next = page + 1;
-    const postResponse = await fetchPosts({ page: next });
+    try {
+      setIsLoading(true);
+      const next = page + 1;
+      const postResponse = await fetchPosts({ page: next });
 
-    if (postResponse.items.length) {
-      setPage(next);
-      setPosts((prev) => [...(prev.length ? prev : []), ...postResponse.items]);
+      if (postResponse.items.length) {
+        setPage(next);
+        setPosts((prev) => [...(prev.length ? prev : []), ...postResponse.items]);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -113,6 +122,10 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
           </div>
         ))}
       </div>
+
+      {
+        isLoading && <LoadingText />
+      }
       {!ableToHideMoreButton && (
         <div className="text-center mb-50">
           <button

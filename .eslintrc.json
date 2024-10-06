@@ -3,9 +3,11 @@
     "universe",
     "plugin:react-hooks/recommended",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "@tanstack/query"
   ],
   "rules": {
+    "@tanstack/query/exhaustive-deps": "error",
     "react-hooks/exhaustive-deps": [
       "warn",
       {

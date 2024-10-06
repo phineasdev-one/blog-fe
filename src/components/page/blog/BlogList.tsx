@@ -50,16 +50,16 @@ const BlogList: FC<Props> = ({ postResponse }) => {
                 <div className="col-7">
                   {item.tags
                     ? item.tags.map((tag) => (
-                        <Link
-                          className="color-gray-700 text-sm mr-15"
-                          href={{
-                            pathname: '/tag/[...slug]',
-                            params: { slug: [tag.label] },
-                          }}
-                          key={tag.label}>
-                          #{tag.label}
-                        </Link>
-                      ))
+                      <Link
+                        className="color-gray-700 text-sm mr-15"
+                        href={{
+                          pathname: '/tag/[...slug]',
+                          params: { slug: [tag.label] },
+                        }}
+                        key={tag.label}>
+                        #{tag.label}
+                      </Link>
+                    ))
                     : ''}
                 </div>
               </div>

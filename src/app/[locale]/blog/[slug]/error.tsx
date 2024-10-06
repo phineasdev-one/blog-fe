@@ -1,3 +1,4 @@
+"use client"
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/utils/navigate';
@@ -15,7 +16,7 @@ export default function Page404() {
                 <div className="box-404 row">
                   <div className="col-lg-6">
                     <div className="image-404">
-                      <img src="../assets/imgs/page/404/404.svg" alt="Phieas" />
+                      <img src="../../assets/imgs/page/404/404.svg" alt="Phieas" />
                     </div>
                   </div>
                   <div className="col-lg-6">

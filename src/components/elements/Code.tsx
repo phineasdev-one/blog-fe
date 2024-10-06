@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useEffect, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -11,10 +13,9 @@ SyntaxHighlighter.registerLanguage('sass', sass);
 
 type Props = {
   children: string;
-  language: string;
 };
 
-const Code: FC<Props> = ({ children, language }) => {
+const Code: FC<Props> = ({ children }) => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {

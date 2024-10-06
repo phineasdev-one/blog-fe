@@ -2,6 +2,7 @@
 
 import Markdown from 'markdown-to-jsx';
 import { FC } from 'react';
+import root from 'react-shadow';
 
 import Code from '@/components/elements/Code';
 import { Tag } from '@/data/model/Tag/tag';
@@ -13,20 +14,139 @@ type Props = {
 };
 
 const SingleContent: FC<Props> = ({ content, tags }) => {
+  const shadowStyles = `
+  
+.content-detail {
+  >*+* {}
+
+  color: #0d0d0d;
+  outline: none;
+  margin: 0 1rem;
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.6;
+  }
+
+  a {
+    color: #0ea5ea;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #2f2f2f;
+    color: #fff;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    display: block;
+    width: 85%;
+    height: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0d0d0d, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0d0d0d, 0.1);
+    margin: 2rem 0;
+  }
+}
+
+.main-content {
+  background: #f9fbff;
+  padding-top: 20px;
+  border-radius: 20px;
+}
+
+.copy-button {
+  position: relative;
+}
+
+.copy-icon {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  z-index: 10;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+}
+
+tr {
+  border-top: 1px solid #c6cbd1;
+}
+
+th,
+td {
+  padding: 6px 13px;
+  border: 1px solid #8a9299;
+}
+
+table tr:nth-child(2n) {
+  background: #f6f8fa;
+}
+
+.table {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+table {
+  min-width: 50%;
+}
+  `;
+
   return (
     <>
-      <div className="content-detail border-gray-800 them">
-        <Markdown
-          options={{
-            overrides: {
-              code: {
-                component: Code,
+      <root.div>
+        <style>{shadowStyles}</style>
+        <div className="content-detail border-gray-800 them">
+          <Markdown
+            options={{
+              overrides: {
+                code: {
+                  component: Code,
+                },
               },
-            },
-          }}>
-          {content.replace(/\n/gi, '\n &nbsp;')}
-        </Markdown>
-      </div>
+            }}>
+            {content}
+          </Markdown>
+        </div>
+      </root.div>
 
       <div className="box-tags">
         {tags.map((tag, index) => (

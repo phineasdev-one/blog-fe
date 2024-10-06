@@ -7,6 +7,7 @@ import ImageWithSkeleton from '@/components/elements/Image';
 import SingleContent from '@/components/sections/SingleContent';
 import { getPostDetail } from '@/data/service/Post/getPostDetail';
 import { formatDateTime } from '@/utils/dateTime';
+import { notFound } from 'next/navigation';
 
 type Props = { params: { slug: string } };
 
@@ -15,9 +16,12 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   // read route params
-  const slug = params.slug;
+  let slug = params.slug;
+
+  slug = Array.isArray(slug) ? slug[0] : slug;
 
   const postDetail = await getPostDetail({ slug });
+
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
@@ -29,8 +33,8 @@ export async function generateMetadata(
       icon: '/favicon.ico',
     },
     openGraph: {
-      title: postDetail.title,
-      description: postDetail.shortDescription,
+      title: postDetail.title ?? "Not found",
+      description: postDetail.shortDescription ?? "Not found",
       siteName: 'Phineas blog',
       images: [
         {
@@ -44,9 +48,14 @@ export async function generateMetadata(
 }
 
 const BlogDetailScreen: FC<Props> = async ({ params }) => {
-  const { slug } = params;
+  let { slug } = params;
+
+  slug = Array.isArray(slug) ? slug[0] : slug;
 
   const postDetail = await getPostDetail({ slug });
+  if (!postDetail) {
+    return notFound();
+  }
 
   return (
     <div className="cover-home3">

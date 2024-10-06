@@ -4,7 +4,7 @@ import { Config } from '@/configs/types';
 
 const config: Config = {
   api: {
-    origin: process.env.VITE_NODE_API as string,
+    origin: process.env.NEXT_PUBLIC_API_URL as string,
   },
 };
 
