@@ -4,6 +4,7 @@ FROM node:16-alpine as build
 # Set the working directory
 WORKDIR /usr/local/app
 
+
 # Add the source code to app
 COPY package*.json ./usr/local/app/
 COPY ./ /usr/local/app/
