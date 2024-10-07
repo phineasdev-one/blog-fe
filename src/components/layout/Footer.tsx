@@ -1,11 +1,9 @@
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
-import { useTheme } from '@/context/ThemeContext';
+import Logo from '../elements/Logo';
 
 const Footer = () => {
-  const { isDarkMode } = useTheme();
 
   const t = useTranslations();
 
@@ -16,18 +14,7 @@ const Footer = () => {
           <div className="footer-1 bg-gray-850 border-gray-800">
             <div className="row flex justify-content-between">
               <div className="col-lg-4 mb-30">
-                <Link
-                  className="wow animate__animated animate__fadeInUp"
-                  href="/">
-                  <img
-                    src={`${
-                      !isDarkMode
-                        ? '/assets/imgs/template/logo.svg'
-                        : '/assets/imgs/template/logo-day.svg'
-                    } `}
-                    alt="Phineas"
-                  />
-                </Link>
+                <Logo />
                 <p className="mb-20 mt-20 text-sm color-gray-500 wow animate__animated animate__fadeInUp">
                   {t('ui.footer.description')}
                 </p>
@@ -63,9 +50,7 @@ const Footer = () => {
                   <div className="mt-20">
                     <button
                       className="btn btn-linear hover-up"
-                      onClick={() => {
-                        alert('The function has not been completed yet');
-                      }}>
+                    >
                       {t('ui.footer.subscribe')}
                       <i className="fi-rr-arrow-small-right" />
                     </button>

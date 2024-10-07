@@ -17,24 +17,13 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
   const shadowStyles = `
   
 .content-detail {
-  >*+* {}
 
   color: #0d0d0d;
   outline: none;
-  margin: 0 1rem;
 
   ul,
   ol {
     padding: 0 1rem;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    line-height: 1.6;
   }
 
   a {
@@ -91,6 +80,7 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
 
 .copy-button {
   position: relative;
+  cursor: pointer;
 }
 
 .copy-icon {
@@ -110,23 +100,26 @@ tr {
 
 th,
 td {
-  padding: 6px 13px;
   border: 1px solid #8a9299;
 }
 
-table tr:nth-child(2n) {
-  background: #f6f8fa;
-}
+th {
+    background-color: #f2f2f2;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
 
 .table {
   width: 100% !important;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin: 10px;
 }
 
 table {
-  min-width: 50%;
+ width: 100%;
+ border-collapse: collapse;
 }
   `;
 
