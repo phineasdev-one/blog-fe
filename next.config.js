@@ -6,7 +6,6 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
-  output: 'standalone',
   images: {
     domains: ['res.cloudinary.com'],
   },
