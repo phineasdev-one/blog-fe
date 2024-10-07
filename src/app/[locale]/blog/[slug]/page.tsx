@@ -75,7 +75,7 @@ const BlogDetailScreen: FC<Props> = async ({ params }) => {
             </div>
             <div className="row mt-30 main-content">
               <div className="col-lg-12 justify-content-center d-flex">
-                <div className="image-detail mb-20 ">
+                <div className="image-detail mb-20 justify-content-center d-flex">
                   <ImageWithSkeleton
                     className="image-detail mb-20 justify-content-center d-flex bdrd16"
                     src={postDetail.poster}
