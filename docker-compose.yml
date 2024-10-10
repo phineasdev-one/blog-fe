@@ -1,28 +1,30 @@
-version: '3'
+version: '3.8'
 
 services:
-  nextjs-app:
+  client:
     image: phianhdev/blog-fe:latest
     container_name: Blog-FE
-    build:
-      context: .
-      dockerfile: Dockerfile
-    networks:
-      - web
-    restart: always
+    build: .
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    restart: unless-stopped
+    labels:
+      io.portainer.accesscontrol.users: admin
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000']
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   nginx:
-    container_name: nginx
-    image: nginx:alpine
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    container_name: Blog-Nginx-Client
+    build: ./nginx
     ports:
-      - '8082:80'
-      - '8443:443'
-    networks:
-      - web
-    restart: always
-
-networks:
-  web:
-    external: false
+      - 3001:80
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    restart: unless-stopped
+    labels:
+      io.portainer.accesscontrol.users: admin
+    depends_on:
+      - client
