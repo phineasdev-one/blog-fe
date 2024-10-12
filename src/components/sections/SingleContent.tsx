@@ -7,6 +7,7 @@ import root from 'react-shadow';
 import Code from '@/components/elements/Code';
 import { Tag } from '@/data/model/Tag/tag';
 import Link from 'next/link';
+import { useTheme } from '@/context/ThemeContext';
 
 type Props = {
   content: string;
@@ -14,10 +15,24 @@ type Props = {
 };
 
 const SingleContent: FC<Props> = ({ content, tags }) => {
-  const shadowStyles = `
-  
-.content-detail {
 
+  const { isDarkMode } = useTheme()
+
+  const shadowStyles = `
+.dark {
+  color: white !important;
+  p span {
+    color: white;
+  }
+
+  th {
+    background-color: transparent;
+  }
+  tr:nth-child(even) {
+    background-color: transparent;
+  }
+}
+.content-detail {
   color: #0d0d0d;
   outline: none;
 
@@ -127,7 +142,7 @@ table {
     <>
       <root.div>
         <style>{shadowStyles}</style>
-        <div className="content-detail border-gray-800 them">
+        <div className={`content-detail border-gray-800 them ${!isDarkMode ? "dark" : ''}`}>
           <Markdown
             options={{
               overrides: {
