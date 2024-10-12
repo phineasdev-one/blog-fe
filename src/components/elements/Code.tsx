@@ -5,9 +5,9 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import sass from 'react-syntax-highlighter/dist/esm/languages/prism/sass';
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import { CopyIcon, PasteIcon } from '@/assets/icons';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 SyntaxHighlighter.registerLanguage('sass', sass);
 

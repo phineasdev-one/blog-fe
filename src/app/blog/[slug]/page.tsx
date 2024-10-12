@@ -47,11 +47,10 @@ export async function generateMetadata(
 }
 
 const BlogDetailScreen: FC<Props> = async ({ params }) => {
-  let { slug } = params;
-
-  slug = Array.isArray(slug) ? slug[0] : slug;
+  const { slug } = params;
 
   const postDetail = await getPostDetail({ slug });
+
   if (!postDetail) {
     return notFound();
   }

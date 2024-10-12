@@ -1,7 +1,7 @@
+import Link from 'next/link';
 import { FC } from 'react';
 
 import { Category } from '@/data/model/Category/category';
-import Link from 'next/link';
 
 type Props = {
   categories: Category[];
