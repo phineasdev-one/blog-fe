@@ -7,7 +7,6 @@ type Props = {
 };
 
 const PopularCategories: FC<Props> = ({ tags }) => {
-
   return (
     <>
       <div className="mt-30">

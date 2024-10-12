@@ -8,7 +8,6 @@ type Props = {
 };
 
 const Sidebar2: FC<Props> = ({ categories }) => {
-
   return (
     <div className="sidebar">
       <div className="box-sidebar bg-gray-850 border-gray-800">
@@ -18,9 +17,7 @@ const Sidebar2: FC<Props> = ({ categories }) => {
         <div className="content-sidebar">
           <div className="list-cats">
             {categories.map((category) => (
-              <Link
-                key={category.id}
-                href={`/danh-muc/${category.name}`}>
+              <Link key={category.id} href={`/danh-muc/${category.name}`}>
                 <div
                   className="item-cats border-gray-800 wow animate__animated animate__fadeIn"
                   key={category.id}>

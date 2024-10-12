@@ -1,18 +1,17 @@
 'use client';
 
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 import ImageWithSkeleton from '@/components/elements/Image';
 import Pagination from '@/components/elements/Pagination';
 import { GetPostResponse } from '@/data/model/Post/post';
-import Link from 'next/link';
 
 type Props = {
   postResponse: GetPostResponse;
 };
 
 const BlogList: FC<Props> = ({ postResponse }) => {
-
   return (
     <div className="col-lg-8">
       <div className="box-list-posts">
@@ -21,8 +20,7 @@ const BlogList: FC<Props> = ({ postResponse }) => {
             className="card-list-posts wow animate__animated animate__fadeIn"
             key={i}>
             <div className="card-image hover-up">
-              <Link
-                href={`/bai-viet/${item.slug}`}>
+              <Link href={`/bai-viet/${item.slug}`}>
                 <ImageWithSkeleton src={item.poster} alt={item.title} />
               </Link>
             </div>
@@ -32,21 +30,20 @@ const BlogList: FC<Props> = ({ postResponse }) => {
                 href={`/danh-muc/${item.category?.name}`}>
                 {item.category?.name}
               </Link>
-              <Link
-                href={`/bai-viet/${item.slug}`}>
+              <Link href={`/bai-viet/${item.slug}`}>
                 <h4 className="mt-15 mb-20 color-white">{item.title}</h4>
               </Link>
               <div className="row mt-20">
                 <div className="col-7">
                   {item.tags
                     ? item.tags.map((tag) => (
-                      <Link
-                        className="color-gray-700 text-sm mr-15"
-                        href={`/tag/${tag.label}`}
-                        key={tag.label}>
-                        #{tag.label}
-                      </Link>
-                    ))
+                        <Link
+                          className="color-gray-700 text-sm mr-15"
+                          href={`/tag/${tag.label}`}
+                          key={tag.label}>
+                          #{tag.label}
+                        </Link>
+                      ))
                     : ''}
                 </div>
               </div>

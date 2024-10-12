@@ -52,7 +52,8 @@ export default async function Home() {
               <EditorPicked
                 postsInitial={postResponse.items}
                 metaInfo={postResponse.meta}
-              /></Suspense>
+              />
+            </Suspense>
             <Suspense fallback={<p>Loading.....</p>}>
               <PopularCategories tags={tags} />
             </Suspense>

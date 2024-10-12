@@ -1,15 +1,14 @@
 'use client';
 
+import Link from 'next/link';
 import { FC, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
 import { fetchPosts } from '@/app/actions';
 import ImageWithSkeleton from '@/components/elements/Image';
+import LoadingText from '@/components/elements/LoadingText';
 import { Post } from '@/data/model/Post/post';
 import { ApiMeta } from '@/types/common';
-
-import LoadingText from '../elements/LoadingText';
-import Link from 'next/link';
 
 type Props = {
   postsInitial: Post[];
@@ -17,7 +16,6 @@ type Props = {
 };
 
 const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
-
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState(postsInitial);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,10 +28,14 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
 
       if (postResponse.items.length) {
         setPage(next);
-        setPosts((prev) => [...(prev.length ? prev : []), ...postResponse.items]);
+        setPosts((prev) => [
+          ...(prev.length ? prev : []),
+          ...postResponse.items,
+        ]);
       }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } finally {
       setIsLoading(false);
     }
@@ -57,12 +59,8 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
             key={i}>
             <div className="card-blog-1 hover-up">
               <div className="card-image mb-20 mh-200 bdr-16 ">
-                <Link
-                  className="post-type"
-                  href={`/bai-viet/${post.slug}`}
-                />
-                <Link
-                  href={`/bai-viet/${post.slug}`}>
+                <Link className="post-type" href={`/bai-viet/${post.slug}`} />
+                <Link href={`/bai-viet/${post.slug}`}>
                   <ImageWithSkeleton src={post.poster} alt={post.title} />
                 </Link>
               </div>
@@ -110,9 +108,7 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
         ))}
       </div>
 
-      {
-        isLoading && <LoadingText />
-      }
+      {isLoading && <LoadingText />}
       {!ableToHideMoreButton && (
         <div className="text-center mb-50">
           <button

@@ -4,7 +4,6 @@ import Typewriter from 'typewriter-effect';
 import ImageWithSkeleton from '@/components/elements/Image';
 
 const Hero1 = () => {
-
   return (
     <div className="banner">
       <div className="row ">

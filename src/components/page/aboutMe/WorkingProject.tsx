@@ -10,42 +10,46 @@ const WorkingProject = () => {
 
   const projectList = [
     {
-      projectName: "Akadev IDE Low-code",
+      projectName: 'Akadev IDE Low-code',
       img: 'akadev.jpg',
-      role: "Developer & User IT",
-      description: "IDE low-code cho phép người dùng tạo ra website, mobile của họ 1 cách nhanh chóng.",
+      role: 'Developer & User IT',
+      description:
+        'IDE low-code cho phép người dùng tạo ra website, mobile của họ 1 cách nhanh chóng.',
       year: '2021',
       url: 'https://www.youtube.com/watch?v=YdXImaUvDtc',
     },
     {
-      projectName: "Symliv",
+      projectName: 'Symliv',
       img: 'symliv.jpg',
-      role: "Developer",
-      description: "Công cụ quản lý khu đô thị.",
+      role: 'Developer',
+      description: 'Công cụ quản lý khu đô thị.',
       year: '2022',
       url: 'https://symliv.com/',
     },
     {
-      projectName: "Aljaro",
+      projectName: 'Aljaro',
       img: 'aljaro.jpg',
-      role: "Developer",
-      description: "Website bán hàng, quà tặng, tuỳ chỉnh quà tặng theo sở thích cho người Nhật.",
+      role: 'Developer',
+      description:
+        'Website bán hàng, quà tặng, tuỳ chỉnh quà tặng theo sở thích cho người Nhật.',
       year: '2023',
       url: 'https://aljaro.jp/',
     },
     {
-      projectName: "MYP Gold",
+      projectName: 'MYP Gold',
       img: 'myp.jpg',
-      role: "Developer",
-      description: "Ứng dụng mobile giúp người dùng theo dõi giá vàng, gửi tiết kiệm và trả lãi.",
+      role: 'Developer',
+      description:
+        'Ứng dụng mobile giúp người dùng theo dõi giá vàng, gửi tiết kiệm và trả lãi.',
       year: '2024',
       url: 'https://apps.apple.com/th/app/myp/id6483687766',
     },
     {
       projectName: 'Travel together',
       img: 'travelTogether.png',
-      role: "Developer",
-      description: "Ứng dụng mobile, website kết nối tour du lịch, ghép đôi du lịch.",
+      role: 'Developer',
+      description:
+        'Ứng dụng mobile, website kết nối tour du lịch, ghép đôi du lịch.',
       year: '2022',
       url: '',
     },
@@ -53,10 +57,11 @@ const WorkingProject = () => {
 
   const personalProject = [
     {
-      projectName: "Doc collaboration",
+      projectName: 'Doc collaboration',
       img: 'phineasDocs.jpg',
-      role: "Developer",
-      description: "Ứng dụng cho phép nhiều người cùng chỉnh sửa tài liệu theo thời gian thực.",
+      role: 'Developer',
+      description:
+        'Ứng dụng cho phép nhiều người cùng chỉnh sửa tài liệu theo thời gian thực.',
       year: '2023',
       url: 'https://docs.phineasdev.one/',
     },

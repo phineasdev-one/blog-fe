@@ -4,7 +4,6 @@ import { ChildProps } from '@/types/common';
 import Link from 'next/link';
 
 const Breadcrumb: FC<ChildProps & { title: string }> = ({ title }) => {
-
   return (
     <ul className="breadcrumb">
       <li>

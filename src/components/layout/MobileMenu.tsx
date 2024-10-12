@@ -7,7 +7,6 @@ type Props = {
 };
 
 const MobileMenu: FC<Props> = ({ openClass, onClose }) => {
-
   return (
     <div
       className={`mobile-header-active mobile-header-wrapper-style perfect-scrollbar bg-gray-900 ${openClass}`}>

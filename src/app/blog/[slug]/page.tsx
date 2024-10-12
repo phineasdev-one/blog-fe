@@ -1,4 +1,5 @@
 import { Metadata, ResolvingMetadata } from 'next';
+import { notFound } from 'next/navigation';
 import React, { FC } from 'react';
 
 import Breadcrumb from '@/components/elements/Breadcrumb';
@@ -7,7 +8,6 @@ import ImageWithSkeleton from '@/components/elements/Image';
 import SingleContent from '@/components/sections/SingleContent';
 import { getPostDetail } from '@/data/service/Post/getPostDetail';
 import { formatDateTime } from '@/utils/dateTime';
-import { notFound } from 'next/navigation';
 
 type Props = { params: { slug: string } };
 
@@ -22,7 +22,6 @@ export async function generateMetadata(
 
   const postDetail = await getPostDetail({ slug });
 
-
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
 
@@ -33,8 +32,8 @@ export async function generateMetadata(
       icon: '/favicon.ico',
     },
     openGraph: {
-      title: postDetail.title ?? "Not found",
-      description: postDetail.shortDescription ?? "Not found",
+      title: postDetail.title ?? 'Not found',
+      description: postDetail.shortDescription ?? 'Not found',
       siteName: 'Phineas blog',
       images: [
         {

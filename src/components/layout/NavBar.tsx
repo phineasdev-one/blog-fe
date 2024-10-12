@@ -1,10 +1,9 @@
-'use client'
-import React, { useState } from 'react'
-import Header from './Header'
-import MobileMenu from './MobileMenu'
+'use client';
+import React, { useState } from 'react';
+import Header from './Header';
+import MobileMenu from './MobileMenu';
 
 const NavBar = () => {
-
   const [openClass, setOpenClass] = useState('');
 
   const handleOpen = () => {
@@ -30,8 +29,9 @@ const NavBar = () => {
         handleRemove={handleRemove}
         openClass={openClass}
       />
-      <MobileMenu onClose={handleRemove} openClass={openClass} /></>
-  )
-}
+      <MobileMenu onClose={handleRemove} openClass={openClass} />
+    </>
+  );
+};
 
-export default NavBar
+export default NavBar;

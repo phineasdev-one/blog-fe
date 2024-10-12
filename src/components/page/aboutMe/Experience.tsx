@@ -2,15 +2,12 @@ import Link from 'next/link';
 import React from 'react';
 
 const Experience = () => {
-
   return (
     <div className="col-lg-4">
       <div className="sidebar">
         <div className="box-sidebar bg-gray-850 border-gray-800">
           <div className="head-sidebar wow animate__animated animate__fadeIn">
-            <h5 className="line-bottom">
-              Kinh nghiệm làm việc
-            </h5>
+            <h5 className="line-bottom">Kinh nghiệm làm việc</h5>
           </div>
           <div className="content-sidebar">
             <div className="list-comments">

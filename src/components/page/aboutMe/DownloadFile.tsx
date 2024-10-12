@@ -6,7 +6,6 @@ const cvUrl =
   'https://www.canva.com/design/DAFMSFck3zE/KP9iOms_Z_ynIhkYHxlKZw/view?utm_content=DAFMSFck3zE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink';
 
 const DownloadFile = () => {
-
   const handleDownLoadFile = async (fileUrl: string) => {
     try {
       const response = await fetch(fileUrl);

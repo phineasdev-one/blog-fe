@@ -1,7 +1,7 @@
+import Link from 'next/link';
 import { FC } from 'react';
 
 import SwitchButton from '@/components/elements/SwitchButton';
-import Link from 'next/link';
 
 type Props = {
   handleOpen: () => void;
@@ -61,8 +61,9 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
               </ul>
             </nav>
             <div
-              className={`burger-icon burger-icon-white ${openClass && 'burger-close'
-                }`}
+              className={`burger-icon burger-icon-white ${
+                openClass && 'burger-close'
+              }`}
               onClick={() => {
                 handleOpen();
                 handleRemove();

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Logo from '../elements/Logo';
+import Logo from '@/components/elements/Logo';
 
 const Footer = () => {
-
   return (
     <>
       <footer className="footer">
@@ -45,9 +44,7 @@ const Footer = () => {
                     />
                   </div>
                   <div className="mt-20">
-                    <button
-                      className="btn btn-linear hover-up"
-                    >
+                    <button className="btn btn-linear hover-up">
                       Đăng ký
                       <i className="fi-rr-arrow-small-right" />
                     </button>

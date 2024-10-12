@@ -1,12 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import React, { FC } from 'react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ImageWithSkeleton from '@/components/elements/Image';
 import { Category } from '@/data/model/Category/category';
-import Link from 'next/link';
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -15,7 +15,6 @@ type Props = {
 };
 
 const HotTopic: FC<Props> = ({ categories }) => {
-
   return (
     <>
       <div className="mb-70">
@@ -30,7 +29,8 @@ const HotTopic: FC<Props> = ({ categories }) => {
               <p
                 className="color-gray-500 mb-20 wow animate__animated animate__fadeInUp"
                 data-wow-delay=".3s">
-                Đừng bỏ lỡ những tin tức mới nhất về cẩm nang code, các công nghệ, cuộc sống...
+                Đừng bỏ lỡ những tin tức mới nhất về cẩm nang code, các công
+                nghệ, cuộc sống...
               </p>
               <div className="box-buttons-slider position-relative wow animate__animated animate__zoomIn">
                 <div className="swiper-button-prev swiper-button-prev-style-1" />
@@ -83,8 +83,7 @@ const HotTopic: FC<Props> = ({ categories }) => {
                     {categories.map((category, index) => (
                       <SwiperSlide className="swiper-slide" key={index}>
                         <div className="card-style-1">
-                          <Link
-                            href={`/danh-muc/${category.name}`}>
+                          <Link href={`/danh-muc/${category.name}`}>
                             <div className="card-image">
                               <ImageWithSkeleton
                                 style={{

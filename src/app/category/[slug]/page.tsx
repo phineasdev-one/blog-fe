@@ -1,8 +1,8 @@
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 import { getPostByCategory } from '@/data/service/Post/getPostByCategory';
 import { formatDateTime } from '@/utils/dateTime';
-import Link from 'next/link';
 type Props = { params: { slug: string } };
 
 const Category: FC<Props> = async ({ params }) => {
@@ -56,8 +56,7 @@ const Category: FC<Props> = async ({ params }) => {
                           </div>
                         </div>
                         <div className="card-info">
-                          <Link
-                            href={`/bai-viet/${post.slug}`}>
+                          <Link href={`/bai-viet/${post.slug}`}>
                             <h4 className="mb-20 color-white">{post.title}</h4>
                           </Link>
                           <div className="row mt-20">

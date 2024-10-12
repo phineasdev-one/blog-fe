@@ -16,16 +16,13 @@ export const metadata: Metadata = {
 };
 
 export default function PageContact() {
-
   return (
     <div className="cover-home3">
       <div className="container">
         <div className="row">
           <div className="col-xl-10 col-lg-12 m-auto">
             <div className="text-center mt-70">
-              <h1 className="color-linear d-inline-block mb-30">
-                Liên hệ
-              </h1>
+              <h1 className="color-linear d-inline-block mb-30">Liên hệ</h1>
             </div>
             <div className="text-center mt-30">
               <div className="d-inline-block support text-start">

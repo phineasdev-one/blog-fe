@@ -1,8 +1,8 @@
+import Link from 'next/link';
 import { FC } from 'react';
 
 import ImageWithSkeleton from '@/components/elements/Image';
 import { Post } from '@/data/model/Post/post';
-import Link from 'next/link';
 
 type Props = {
   posts: Post[];
@@ -11,12 +11,8 @@ type Props = {
 const RecentPosts: FC<Props> = ({ posts }) => {
   return (
     <>
-      <h2 className="color-linear d-inline-block mb-10">
-        Bài đăng gần đây
-      </h2>
-      <p className="text-lg color-gray-500">
-        Đừng bỏ lỡ tin tức gần đây
-      </p>
+      <h2 className="color-linear d-inline-block mb-10">Bài đăng gần đây</h2>
+      <p className="text-lg color-gray-500">Đừng bỏ lỡ tin tức gần đây</p>
       <div className="box-list-posts mt-70">
         {posts.slice(0, 6).map((post, index) => (
           <div
@@ -24,8 +20,7 @@ const RecentPosts: FC<Props> = ({ posts }) => {
             key={index}
             data-wow-delay={`${index / 10}s`}>
             <div className="card-image hover-up">
-              <Link
-                href={`/bai-viet/${post.slug}`}>
+              <Link href={`/bai-viet/${post.slug}`}>
                 <ImageWithSkeleton src={post.poster} alt={post.title} />
               </Link>
             </div>
@@ -35,8 +30,7 @@ const RecentPosts: FC<Props> = ({ posts }) => {
                 href={`/danh-muc/${post.category.name}`}>
                 {post.category.name}
               </Link>
-              <Link
-                href={`/bai-viet/${post.slug}`}>
+              <Link href={`/bai-viet/${post.slug}`}>
                 <h4 className="mt-15 mb-20 color-white"> {post.title}</h4>
               </Link>
               <p className="color-gray-500">{post.shortDescription}</p>
@@ -44,13 +38,13 @@ const RecentPosts: FC<Props> = ({ posts }) => {
                 <div className="col-7">
                   {post.tags
                     ? post.tags.map((tag) => (
-                      <Link
-                        className="color-gray-700 text-sm mr-15"
-                        href={`/tag/${tag.label}`}
-                        key={tag.label}>
-                        #{tag.label}
-                      </Link>
-                    ))
+                        <Link
+                          href={`/tag/${tag.label}`}
+                          className="color-gray-700 text-sm mr-15"
+                          key={tag.label}>
+                          #{tag.label}
+                        </Link>
+                      ))
                     : ''}
                 </div>
               </div>

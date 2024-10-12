@@ -3,10 +3,10 @@
 import React, { Component, createRef, RefObject } from 'react';
 
 // Define Props interface if there are any props. Currently, assuming no props.
-interface Props { }
+interface Props {}
 
 // Define State interface if there is any state. Currently, assuming no state.
-interface State { }
+interface State {}
 
 // Define the Comments component as a TypeScript class component
 export default class Comments extends Component<Props, State> {

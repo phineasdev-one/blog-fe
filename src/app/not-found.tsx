@@ -1,8 +1,7 @@
-'use client'
-import Link from "next/link";
+'use client';
+import Link from 'next/link';
 
 export default function Page404() {
-
   return (
     <div className="cover-home3 shadow-page-404">
       <div className="container">
@@ -18,11 +17,10 @@ export default function Page404() {
                   </div>
                   <div className="col-lg-6">
                     <div className="info-404 text-start mt-60">
-                      <h2 className="color-linear mb-20">
-                        Đừng lo lắng!
-                      </h2>
+                      <h2 className="color-linear mb-20">Đừng lo lắng!</h2>
                       <p className="text-xl color-gray-500">
-                        Không tìm thấy trang mà bạn đang tìm kiếm, nhấp vào bên dưới để trở lại trang chính
+                        Không tìm thấy trang mà bạn đang tìm kiếm, nhấp vào bên
+                        dưới để trở lại trang chính
                       </p>
                       <div className="mt-25">
                         <Link className="btn btn-linear hover-up" href="/">
