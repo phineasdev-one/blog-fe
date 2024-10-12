@@ -1,13 +1,11 @@
-'use client';
-
 import Markdown from 'markdown-to-jsx';
+import Link from 'next/link';
 import { FC } from 'react';
 import root from 'react-shadow';
 
 import Code from '@/components/elements/Code';
-import { Tag } from '@/data/model/Tag/tag';
-import Link from 'next/link';
 import { useTheme } from '@/context/ThemeContext';
+import { Tag } from '@/data/model/Tag/tag';
 
 type Props = {
   content: string;
@@ -15,8 +13,7 @@ type Props = {
 };
 
 const SingleContent: FC<Props> = ({ content, tags }) => {
-
-  const { isDarkMode } = useTheme()
+  const { isDarkMode } = useTheme();
 
   const shadowStyles = `
 .dark {
@@ -142,7 +139,8 @@ table {
     <>
       <root.div>
         <style>{shadowStyles}</style>
-        <div className={`content-detail border-gray-800 them ${!isDarkMode ? "dark" : ''}`}>
+        <div
+          className={`content-detail border-gray-800 them ${!isDarkMode ? 'dark' : ''}`}>
           <Markdown
             options={{
               overrides: {

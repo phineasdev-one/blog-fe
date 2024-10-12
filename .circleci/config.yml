@@ -9,7 +9,7 @@ jobs:
     docker:
       - image: cimg/node:16.20.0
     environment: #Tạo biến global
-      DOCKER_IMAGE: phianhdev/blog-fe
+      DOCKER_IMAGE: phianhdev/my-personal-blog
       DOCKER_TAG: latest
     executor: docker/docker
     steps:
