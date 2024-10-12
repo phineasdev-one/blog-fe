@@ -23,7 +23,15 @@ const Experience = () => {
               <div className="item-comment border-gray-800 wow animate__animated animate__fadeIn">
                 <p className="color-gray-200 mb-5 text-uppercase lh-lg">
                   <Link className="text-white" href="https://corize.co.jp/en/">
-                    Corize INC VietNam | Present
+                    Corize INC VietNam
+                  </Link>
+                </p>
+                <p className="color-gray-500 lh-lg">Front-end Developer</p>
+              </div>
+              <div className="item-comment border-gray-800 wow animate__animated animate__fadeIn">
+                <p className="color-gray-200 mb-5 text-uppercase lh-lg">
+                  <Link className="text-white" href="https://corize.co.jp/en/">
+                    Avepoint | Present
                   </Link>
                 </p>
                 <p className="color-gray-500 lh-lg">Front-end Developer</p>
