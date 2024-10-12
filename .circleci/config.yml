@@ -7,7 +7,7 @@ orbs:
 jobs:
   build-and-push: #Đặt tên job
     docker:
-      - image: cimg/node:18.20.0
+      - image: cimg/node:16.20.0
     environment: #Tạo biến global
       DOCKER_IMAGE: phianhdev/blog-fe
       DOCKER_TAG: latest
