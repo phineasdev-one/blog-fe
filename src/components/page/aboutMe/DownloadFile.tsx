@@ -1,13 +1,11 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const cvUrl =
   'https://www.canva.com/design/DAFMSFck3zE/KP9iOms_Z_ynIhkYHxlKZw/view?utm_content=DAFMSFck3zE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink';
 
 const DownloadFile = () => {
-  const t = useTranslations();
 
   const handleDownLoadFile = async (fileUrl: string) => {
     try {
@@ -31,7 +29,7 @@ const DownloadFile = () => {
     <button
       className="btn btn-linear d-sm-inline-block hover-up hover-shadow"
       onClick={() => handleDownLoadFile(cvUrl)}>
-      {t('page.aboutMe.experience.download')}
+      Tải xuống CV
     </button>
   );
 };

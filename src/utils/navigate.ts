@@ -1,8 +1,3 @@
-import {
-  createLocalizedPathnamesNavigation,
-  Pathnames,
-} from 'next-intl/navigation';
-
 export const locales = ['vi', 'en'] as const;
 export const localePrefix = 'always'; // Default
 
@@ -10,7 +5,7 @@ export const pathnames = {
   '/': '/',
   '/blog': {
     en: '/blogs',
-    vi: '/bai-viet',
+    vi: '/blog',
   },
 
   '/about-me': {
@@ -27,7 +22,7 @@ export const pathnames = {
   // Also (optional) catch-all segments are supported
   '/category/[...slug]': {
     en: '/category/[...slug]',
-    vi: '/danh-muc/[...slug]',
+    vi: '/category/[...slug]',
   },
   '/tag/[...slug]': {
     en: '/tag/[...slug]',
@@ -39,9 +34,6 @@ export const pathnames = {
   },
   '/blog/[...slug]': {
     en: '/blog/[...slug]',
-    vi: '/bai-viet/[...slug]',
+    vi: '/blog/[...slug]',
   },
-} satisfies Pathnames<typeof locales>;
-
-export const { Link, redirect, usePathname, useRouter, getPathname } =
-  createLocalizedPathnamesNavigation({ locales, pathnames });
+};

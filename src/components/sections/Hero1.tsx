@@ -1,21 +1,19 @@
 'use client';
-import { useTranslations } from 'next-intl';
 import Typewriter from 'typewriter-effect';
 
 import ImageWithSkeleton from '@/components/elements/Image';
 
 const Hero1 = () => {
-  const t = useTranslations();
 
   return (
     <div className="banner">
       <div className="row ">
         <div className="col-lg-6 main-content-banner">
           <span className="text-sm-bold color-gray-600 wow animate__animated animate__fadeInUp">
-            {t('page.home.hero.title')}
+            Xin chào!
           </span>
           <h1 className="color-gray-50 mt-20 mb-20 wow animate__animated animate__fadeInUp">
-            {t('page.home.hero.me')}
+            Mình là
             <Typewriter
               options={{
                 wrapperClassName: 'typewrite color-linear',
@@ -33,7 +31,7 @@ const Hero1 = () => {
           <div className="row">
             <div className="col-lg-9">
               <p className="text-base color-gray-600 wow animate__animated animate__fadeInUp">
-                {t('page.home.hero.description')}
+                Cảm ơn mọi người đã dành thời gian ghé thăm!
               </p>
             </div>
           </div>

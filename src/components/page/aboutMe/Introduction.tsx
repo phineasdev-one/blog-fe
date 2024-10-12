@@ -1,16 +1,14 @@
-import { useTranslations } from 'next-intl';
 import React from 'react';
 
 import ImageWithSkeleton from '@/components/elements/Image';
 
 const Introduction = () => {
-  const t = useTranslations();
 
   return (
     <div className="content-detail border-gray-800">
       <p className="text-lg color-gray-500 wow animate__animated animate__fadeIn">
-        <strong>{t('page.aboutMe.content1')}</strong>
-        {t('page.aboutMe.content2')}
+        <strong>Mình là Trần Phi Anh.{' '}</strong>
+        Là 1 lập trình viên tại Đà Nẵng với 3 năm kinh nghiệm làm việc trong lĩnh vực phát triển ứng dụng, website.
       </p>
       <div className="row mt-20 wow animate__animated animate__fadeIn">
         <ImageWithSkeleton

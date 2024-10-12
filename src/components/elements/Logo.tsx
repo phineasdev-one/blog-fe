@@ -1,6 +1,6 @@
 "use client"
 import { useTheme } from '@/context/ThemeContext';
-import { Link } from '@/utils/navigate';
+import Link from 'next/link';
 import React from 'react'
 
 const Logo = () => {

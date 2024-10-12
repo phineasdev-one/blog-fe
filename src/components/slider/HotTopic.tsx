@@ -1,13 +1,12 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import React, { FC } from 'react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import ImageWithSkeleton from '@/components/elements/Image';
 import { Category } from '@/data/model/Category/category';
-import { Link } from '@/utils/navigate';
+import Link from 'next/link';
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -16,7 +15,6 @@ type Props = {
 };
 
 const HotTopic: FC<Props> = ({ categories }) => {
-  const t = useTranslations();
 
   return (
     <>
@@ -27,12 +25,12 @@ const HotTopic: FC<Props> = ({ categories }) => {
               <h5
                 className="mb-15 color-white wow animate__animated animate__fadeInUp"
                 data-wow-delay="0s">
-                {t('page.home.hotTopic.title')}
+                Chủ đề nóng
               </h5>
               <p
                 className="color-gray-500 mb-20 wow animate__animated animate__fadeInUp"
                 data-wow-delay=".3s">
-                {t('page.home.hotTopic.description')}
+                Đừng bỏ lỡ những tin tức mới nhất về cẩm nang code, các công nghệ, cuộc sống...
               </p>
               <div className="box-buttons-slider position-relative wow animate__animated animate__zoomIn">
                 <div className="swiper-button-prev swiper-button-prev-style-1" />
@@ -86,10 +84,7 @@ const HotTopic: FC<Props> = ({ categories }) => {
                       <SwiperSlide className="swiper-slide" key={index}>
                         <div className="card-style-1">
                           <Link
-                            href={{
-                              pathname: '/category/[...slug]',
-                              params: { slug: [category.name] },
-                            }}>
+                            href={`/danh-muc/${category.name}`}>
                             <div className="card-image">
                               <ImageWithSkeleton
                                 style={{

@@ -1,21 +1,19 @@
-import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
 import { ChildProps } from '@/types/common';
-import { Link } from '@/utils/navigate';
+import Link from 'next/link';
 
 const Breadcrumb: FC<ChildProps & { title: string }> = ({ title }) => {
-  const t = useTranslations();
 
   return (
     <ul className="breadcrumb">
       <li>
         <Link className="home" href="/">
-          {t('ui.header.home')}
+          Trang chủ
         </Link>
       </li>
       <li>
-        <Link href="/blog"> {t('ui.header.blog')}</Link>
+        <Link href="/bai-viet">Bài viết</Link>
       </li>
       <li>
         <span>{title}</span>

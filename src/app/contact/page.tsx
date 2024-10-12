@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 
 export const metadata: Metadata = {
   title: 'Phineas blog',
@@ -17,7 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default function PageContact() {
-  const t = useTranslations();
 
   return (
     <div className="cover-home3">
@@ -26,7 +24,7 @@ export default function PageContact() {
           <div className="col-xl-10 col-lg-12 m-auto">
             <div className="text-center mt-70">
               <h1 className="color-linear d-inline-block mb-30">
-                {t('page.contact.title')}
+                Liên hệ
               </h1>
             </div>
             <div className="text-center mt-30">

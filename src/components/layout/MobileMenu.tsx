@@ -1,7 +1,5 @@
-import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { FC } from 'react';
-
-import { Link } from '@/utils/navigate';
 
 type Props = {
   openClass: string;
@@ -9,7 +7,6 @@ type Props = {
 };
 
 const MobileMenu: FC<Props> = ({ openClass, onClose }) => {
-  const t = useTranslations();
 
   return (
     <div
@@ -36,23 +33,22 @@ const MobileMenu: FC<Props> = ({ openClass, onClose }) => {
                 <ul className="mobile-menu font-heading">
                   <li>
                     <Link href="/" onClick={onClose}>
-                      {t('ui.header.home')}
+                      Trang chủ
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about-me" onClick={onClose}>
-                      {t('ui.header.aboutMe')}
+                    <Link href="/ve-toi" onClick={onClose}>
+                      Về tôi
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog" onClick={onClose}>
-                      {t('ui.header.blog')}
+                    <Link href="/bai-viet" onClick={onClose}>
+                      Bài viết
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" onClick={onClose}>
-                      {' '}
-                      {t('ui.header.contact')}
+                    <Link href="/lien-he" onClick={onClose}>
+                      Liên hệ
                     </Link>
                   </li>
                 </ul>

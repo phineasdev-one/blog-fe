@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
 import { Tag } from '@/data/model/Tag/tag';
@@ -8,16 +7,15 @@ type Props = {
 };
 
 const PopularCategories: FC<Props> = ({ tags }) => {
-  const t = useTranslations();
 
   return (
     <>
       <div className="mt-30">
         <h2 className="color-linear d-inline-block mb-10 wow animate__animated animate__fadeInUp">
-          {t('page.home.popularTag.title')}
+          Thẻ danh mục nổi bật
         </h2>
         <p className="text-lg color-gray-500 wow animate__animated animate__fadeInUp">
-          {t('page.home.popularTag.description')}
+          Thẻ danh mục được đề xuất
         </p>
         <div className="row mt-70 mb-50">
           {tags?.map((tag, index) => (
@@ -30,8 +28,8 @@ const PopularCategories: FC<Props> = ({ tags }) => {
                 <div className="card-image">
                   {/* <Link
                     href={{
-                      pathname: '/tag/[...slug]',
-                      params: { slug: [tag.label] },
+                      pathname: '/tag/${tag.label',
+                      params: { slug: [] },
                     }}> */}
                   <img src={tag.thumbnail} alt={tag.label} />
                   {/* </Link> */}

@@ -29,8 +29,6 @@
     "markdown-to-jsx": "^7.4.7",
     "next": "13.4.19",
     "next-i18n-router": "^5.2.0",
-    "next-international": "^1.2.4",
-    "next-intl": "^3.5.3",
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",

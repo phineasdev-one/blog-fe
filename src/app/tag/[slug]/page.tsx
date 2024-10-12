@@ -64,7 +64,7 @@ const Category = () => {
                           </Link>
                         </div>
                         <div className="card-info">
-                          <Link href={`/blog/${item.id}`}>
+                          <Link href={`/bai-viet/${item.id}`}>
                             <h3 className="mb-20 color-white">{item.title}</h3>
                           </Link>
                           <p className="color-gray-500">{item.excerpt}</p>

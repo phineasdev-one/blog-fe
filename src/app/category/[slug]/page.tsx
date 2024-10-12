@@ -2,8 +2,7 @@ import React, { FC } from 'react';
 
 import { getPostByCategory } from '@/data/service/Post/getPostByCategory';
 import { formatDateTime } from '@/utils/dateTime';
-import { Link } from '@/utils/navigate';
-
+import Link from 'next/link';
 type Props = { params: { slug: string } };
 
 const Category: FC<Props> = async ({ params }) => {
@@ -58,10 +57,7 @@ const Category: FC<Props> = async ({ params }) => {
                         </div>
                         <div className="card-info">
                           <Link
-                            href={{
-                              pathname: '/blog/[...slug]',
-                              params: { slug: [post.slug] },
-                            }}>
+                            href={`/bai-viet/${post.slug}`}>
                             <h4 className="mb-20 color-white">{post.title}</h4>
                           </Link>
                           <div className="row mt-20">
@@ -69,10 +65,7 @@ const Category: FC<Props> = async ({ params }) => {
                               {post.tags?.map((tag) => (
                                 <Link
                                   className="color-gray-700 text-sm mr-15"
-                                  href={{
-                                    pathname: '/tag/[...slug]',
-                                    params: { slug: [tag.label] },
-                                  }}
+                                  href={`/tag/${tag.label}`}
                                   key={tag.label}>
                                   #{tag.label}
                                 </Link>

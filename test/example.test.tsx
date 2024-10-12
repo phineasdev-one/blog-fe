@@ -1,4 +1,4 @@
-import Home from '@/app/[locale]/page';
+import Home from '@/app/page';
 import Hello from '@/components/page/test/Hello';
 import '@testing-library/jest-dom';
 import { getByText, render } from '@testing-library/react';

@@ -20,8 +20,8 @@ const EditorPicked2 = () => {
               key={i}>
               <div className="card-blog-1 hover-up">
                 <div className="card-image mb-20">
-                  <Link className="post-type" href={`/blog/${item.id}`} />
-                  <Link href={`/blog/${item.id}`}>
+                  <Link className="post-type" href={`/bai-viet/${item.id}`} />
+                  <Link href={`/bai-viet/${item.id}`}>
                     <img
                       src={`assets/imgs/page/homepage2/${item.img}`}
                       alt="Phineas"
@@ -43,7 +43,7 @@ const EditorPicked2 = () => {
                       </span>
                     </div>
                   </div>
-                  <Link href={`/blog/${item.id}`}>
+                  <Link href={`/bai-viet/${item.id}`}>
                     <h4 className="color-white mt-20">
                       Are You Ready To Go Home After The Sunset View?
                     </h4>

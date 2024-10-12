@@ -1,8 +1,7 @@
-import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
 import SwitchButton from '@/components/elements/SwitchButton';
-import { Link } from '@/utils/navigate';
+import Link from 'next/link';
 
 type Props = {
   handleOpen: () => void;
@@ -11,14 +10,6 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
-  // State to represent whether something is toggled or not
-  // const [isToggled, setToggled] = useState(false);
-
-  // Function to toggle the value of 'isToggled'
-  // const toggleTrueFalse = () => setToggled(!isToggled);
-
-  const t = useTranslations();
-
   return (
     <header className={'header sticky-bar bg-gray-900'}>
       <div className="container">
@@ -42,17 +33,17 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
               <ul className="main-menu">
                 <li>
                   <Link className="color-gray-500" href="/">
-                    {t('ui.header.home')}
+                    Trang chủ
                   </Link>
                 </li>
                 <li>
-                  <Link className="color-gray-500" href="/about-me">
-                    {t('ui.header.aboutMe')}
+                  <Link className="color-gray-500" href="/ve-toi">
+                    Về tôi
                   </Link>
                 </li>
                 <li>
-                  <Link className="color-gray-500" href="/blog">
-                    {t('ui.header.blog')}
+                  <Link className="color-gray-500" href="/bai-viet">
+                    Bài viết
                   </Link>
                   {/* <ul className="sub-menu two-col">
                     <li>
@@ -63,16 +54,15 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
                   </ul> */}
                 </li>
                 <li>
-                  <Link className="color-gray-500" href="/contact">
-                    {t('ui.header.contact')}
+                  <Link className="color-gray-500" href="/lien-he">
+                    Liên hệ
                   </Link>
                 </li>
               </ul>
             </nav>
             <div
-              className={`burger-icon burger-icon-white ${
-                openClass && 'burger-close'
-              }`}
+              className={`burger-icon burger-icon-white ${openClass && 'burger-close'
+                }`}
               onClick={() => {
                 handleOpen();
                 handleRemove();
@@ -121,7 +111,7 @@ const Header: FC<Props> = ({ handleOpen, handleRemove, openClass }) => {
             {/* <Link
               className="btn btn-linear d-none d-sm-inline-block hover-up hover-shadow"
               href="/">
-              {t('ui.button.login')}
+              Dang Nhap
             </Link> */}
           </div>
         </div>

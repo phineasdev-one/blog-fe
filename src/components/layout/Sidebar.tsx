@@ -20,7 +20,7 @@ const Sidebar = () => {
                   data-wow-delay={`${i / 10}s`}
                   key={i}>
                   <div className="image-post">
-                    <Link href={`/blog/${item.id}`}>
+                    <Link href={`/bai-viet/${item.id}`}>
                       <img
                         src={`/assets/imgs/page/healthy/${item.img}`}
                         alt="Phineas"
@@ -28,7 +28,7 @@ const Sidebar = () => {
                     </Link>
                   </div>
                   <div className="info-post border-gray-800">
-                    <Link href={`/blog/${item.id}`}>
+                    <Link href={`/bai-viet/${item.id}`}>
                       <h6 className="color-white">{item.title}</h6>
                     </Link>
                     <span className="color-gray-700">

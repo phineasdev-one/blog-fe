@@ -1,55 +1,51 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import React, { useEffect, useState } from 'react';
 
 import ImageWithSkeleton from '@/components/elements/Image';
 import { Portal } from '@/components/elements/Portal';
 
 const WorkingProject = () => {
-  const t = useTranslations();
-
   const [showMessage, setShowMessage] = useState(false);
 
   const projectList = [
     {
-      projectName: t('page.aboutMe.project.akadev.name'),
+      projectName: "Akadev IDE Low-code",
       img: 'akadev.jpg',
-      role: t('page.aboutMe.project.akadev.role'),
-      description: t('page.aboutMe.project.akadev.description'),
+      role: "Developer & User IT",
+      description: "IDE low-code cho phép người dùng tạo ra website, mobile của họ 1 cách nhanh chóng.",
       year: '2021',
       url: 'https://www.youtube.com/watch?v=YdXImaUvDtc',
     },
     {
-      projectName: t('page.aboutMe.project.symliv.name'),
+      projectName: "Symliv",
       img: 'symliv.jpg',
-      role: t('page.aboutMe.project.symliv.role'),
-      description: t('page.aboutMe.project.symliv.description'),
+      role: "Developer",
+      description: "Công cụ quản lý khu đô thị.",
       year: '2022',
       url: 'https://symliv.com/',
     },
     {
-      projectName: t('page.aboutMe.project.aljaro.name'),
+      projectName: "Aljaro",
       img: 'aljaro.jpg',
-      role: t('page.aboutMe.project.aljaro.role'),
-      description: t('page.aboutMe.project.aljaro.description'),
+      role: "Developer",
+      description: "Website bán hàng, quà tặng, tuỳ chỉnh quà tặng theo sở thích cho người Nhật.",
       year: '2023',
       url: 'https://aljaro.jp/',
     },
     {
-      projectName: t('page.aboutMe.project.mypGold.name'),
+      projectName: "MYP Gold",
       img: 'myp.jpg',
-      role: t('page.aboutMe.project.mypGold.role'),
-      description: t('page.aboutMe.project.mypGold.description'),
+      role: "Developer",
+      description: "Ứng dụng mobile giúp người dùng theo dõi giá vàng, gửi tiết kiệm và trả lãi.",
       year: '2024',
       url: 'https://apps.apple.com/th/app/myp/id6483687766',
     },
     {
       projectName: 'Travel together',
       img: 'travelTogether.png',
-      role: t('page.aboutMe.project.mypGold.role'),
-      description:
-        'Ứng dụng mobile, website kết nối tour du lịch, ghép đôi du lịch',
+      role: "Developer",
+      description: "Ứng dụng mobile, website kết nối tour du lịch, ghép đôi du lịch.",
       year: '2022',
       url: '',
     },
@@ -59,12 +55,11 @@ const WorkingProject = () => {
     {
       projectName: "Doc collaboration",
       img: 'phineasDocs.jpg',
-      role: t('page.aboutMe.project.symliv.role'),
-      description: "Ứng dụng cho phép nhiều người cùng chỉnh sửa tài liệu theo thời gian thực",
+      role: "Developer",
+      description: "Ứng dụng cho phép nhiều người cùng chỉnh sửa tài liệu theo thời gian thực.",
       year: '2023',
       url: 'https://docs.phineasdev.one/',
     },
-
   ];
 
   const handleRedirect = (url: string) => {
@@ -86,7 +81,7 @@ const WorkingProject = () => {
   return (
     <div className="content-detail">
       <h3 className="color-white mb-30 wow animate__animated animate__fadeIn">
-        {t('page.aboutMe.project.title')}
+        Các dự án nổi bật
       </h3>
       <div className="mt-50 mb-50">
         <div className="row mt-50 mb-10">
@@ -97,11 +92,6 @@ const WorkingProject = () => {
               onClick={() => handleRedirect(project.url)}>
               <div className="card-blog-1 hover-up wow animate__animated animate__fadeIn">
                 <div className="card-image mb-30 img-fluid">
-                  {/* <img
-                    src={`../assets/imgs/page/about/${project.img}`}
-                    alt="Phineas tran"
-                    className="bdrd16 w-100"
-                  /> */}
                   <ImageWithSkeleton
                     src={`../assets/imgs/page/about/${project.img}`}
                     alt="Phineas tran"

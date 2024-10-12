@@ -1,31 +1,26 @@
-import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 
 import { Category } from '@/data/model/Category/category';
-import { Link } from '@/utils/navigate';
+import Link from 'next/link';
 
 type Props = {
   categories: Category[];
 };
 
 const Sidebar2: FC<Props> = ({ categories }) => {
-  const t = useTranslations();
 
   return (
     <div className="sidebar">
       <div className="box-sidebar bg-gray-850 border-gray-800">
         <div className="head-sidebar">
-          <h5 className="line-bottom">{t('ui.category.title')}</h5>
+          <h5 className="line-bottom">Danh mục</h5>
         </div>
         <div className="content-sidebar">
           <div className="list-cats">
             {categories.map((category) => (
               <Link
                 key={category.id}
-                href={{
-                  pathname: '/category/[...slug]',
-                  params: { slug: [category.name] },
-                }}>
+                href={`/danh-muc/${category.name}`}>
                 <div
                   className="item-cats border-gray-800 wow animate__animated animate__fadeIn"
                   key={category.id}>

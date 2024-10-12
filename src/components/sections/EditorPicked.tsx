@@ -1,15 +1,15 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { FC, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { fetchPosts } from '@/app/[locale]/actions';
+import { fetchPosts } from '@/app/actions';
 import ImageWithSkeleton from '@/components/elements/Image';
 import { Post } from '@/data/model/Post/post';
 import { ApiMeta } from '@/types/common';
-import { Link } from '@/utils/navigate';
+
 import LoadingText from '../elements/LoadingText';
+import Link from 'next/link';
 
 type Props = {
   postsInitial: Post[];
@@ -17,7 +17,6 @@ type Props = {
 };
 
 const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
-  const t = useTranslations();
 
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState(postsInitial);
@@ -45,10 +44,10 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
   return (
     <>
       <h2 className="color-linear d-inline-block mb-10 wow animate__animated animate__fadeInUp">
-        {t('page.home.editorPicked.title')}
+        Bài viết nổi bật
       </h2>
       <p className="text-lg color-gray-500 wow animate__animated animate__fadeInUp">
-        {t('page.home.editorPicked.description')}
+        Các bài viết nổi bật mà admin chọn
       </p>
       <div className="row mt-70">
         {posts.map((post, i) => (
@@ -60,16 +59,10 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
               <div className="card-image mb-20 mh-200 bdr-16 ">
                 <Link
                   className="post-type"
-                  href={{
-                    pathname: '/blog/[...slug]',
-                    params: { slug: [post.slug] },
-                  }}
+                  href={`/bai-viet/${post.slug}`}
                 />
                 <Link
-                  href={{
-                    pathname: '/blog/[...slug]',
-                    params: { slug: [post.slug] },
-                  }}>
+                  href={`/bai-viet/${post.slug}`}>
                   <ImageWithSkeleton src={post.poster} alt={post.title} />
                 </Link>
               </div>
@@ -78,10 +71,7 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
                   <div className="col-7">
                     <Link
                       className="color-gray-700 text-sm"
-                      href={{
-                        pathname: '/category/[...slug]',
-                        params: { slug: [post.category.name] },
-                      }}>
+                      href={`/danh-muc/${post.category.name}`}>
                       {post.category?.name || <Skeleton />}
                     </Link>
                   </div>
@@ -109,11 +99,8 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
                   <div className="col-5 text-end">
                     <Link
                       className="readmore color-gray-500 text-sm"
-                      href={{
-                        pathname: '/blog/[...slug]',
-                        params: { slug: [post.slug] },
-                      }}>
-                      <span>{t('ui.button.readMore')}</span>
+                      href={`/bai-viet/${post.slug}`}>
+                      <span>Đọc thêm</span>
                     </Link>
                   </div>
                 </div>
@@ -131,7 +118,7 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
           <button
             className="btn btn-linear btn-load-more wow animate__animated animate__zoomIn"
             onClick={handleLoadPost}>
-            {t('ui.button.showMore')}
+            Hiển thị thêm
             <i className="fi-rr-arrow-small-right" />
           </button>
         </div>

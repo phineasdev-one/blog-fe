@@ -1,11 +1,8 @@
-import { useTranslations } from 'next-intl';
 import React from 'react';
 
 import Logo from '../elements/Logo';
 
 const Footer = () => {
-
-  const t = useTranslations();
 
   return (
     <>
@@ -16,10 +13,10 @@ const Footer = () => {
               <div className="col-lg-4 mb-30">
                 <Logo />
                 <p className="mb-20 mt-20 text-sm color-gray-500 wow animate__animated animate__fadeInUp">
-                  {t('ui.footer.description')}
+                  Chia sẻ kiến thức lập trình, cuộc sống...
                 </p>
                 <h6 className="color-white mb-5 wow animate__animated animate__fadeInUp">
-                  {t('ui.footer.address')}
+                  Địa chỉ
                 </h6>
                 <p className="text-sm color-gray-500 wow animate__animated animate__fadeInUp">
                   Danang, Vienam
@@ -27,10 +24,10 @@ const Footer = () => {
               </div>
               <div className="col-lg-4 mb-30">
                 <h4 className="text-lg mb-30 color-white wow animate__animated animate__fadeInUp">
-                  {t('ui.footer.newsletter')}
+                  Tin tức
                 </h4>
                 <p className="text-base color-gray-500 wow animate__animated animate__fadeInUp">
-                  {t('ui.footer.newsletterDescription')}
+                  Đăng ký để nhận tin tức mới nhất
                 </p>
                 <div className="form-newsletters mt-15 wow animate__animated animate__fadeInUp">
                   <div className="form-group">
@@ -51,7 +48,7 @@ const Footer = () => {
                     <button
                       className="btn btn-linear hover-up"
                     >
-                      {t('ui.footer.subscribe')}
+                      Đăng ký
                       <i className="fi-rr-arrow-small-right" />
                     </button>
                   </div>
@@ -62,7 +59,7 @@ const Footer = () => {
               <div className="row">
                 <div className="col-lg-5 text-center text-lg-start">
                   <p className="text-base color-white wow animate__animated animate__fadeIn">
-                    {t('ui.footer.createdBy')}
+                    © 2024 tạo bởi Phineas
                   </p>
                 </div>
                 {/* <div className="col-lg-7 text-center text-lg-end">

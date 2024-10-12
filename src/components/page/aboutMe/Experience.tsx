@@ -1,9 +1,7 @@
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
 import React from 'react';
 
 const Experience = () => {
-  const t = useTranslations();
 
   return (
     <div className="col-lg-4">
@@ -11,7 +9,7 @@ const Experience = () => {
         <div className="box-sidebar bg-gray-850 border-gray-800">
           <div className="head-sidebar wow animate__animated animate__fadeIn">
             <h5 className="line-bottom">
-              {t('page.aboutMe.experience.title')}
+              Kinh nghiệm làm việc
             </h5>
           </div>
           <div className="content-sidebar">
@@ -51,7 +49,7 @@ const Experience = () => {
                   href="/TranPhiAnh.pdf"
                   target="_blank"
                   download>
-                  {t('page.aboutMe.experience.download')}
+                  Tải xuống CV
                 </Link>
               </div>
             </div>

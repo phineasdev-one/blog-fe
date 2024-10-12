@@ -6,7 +6,7 @@ import root from 'react-shadow';
 
 import Code from '@/components/elements/Code';
 import { Tag } from '@/data/model/Tag/tag';
-import { Link } from '@/utils/navigate';
+import Link from 'next/link';
 
 type Props = {
   content: string;
@@ -146,10 +146,7 @@ table {
           <Link
             key={index}
             className="btn btn-tags bg-gray-850 border-gray-800 mr-10 hover-up"
-            href={{
-              pathname: '/tag/[...slug]',
-              params: { slug: [tag.label] },
-            }}>
+            href={`/tag/${tag.label}`}>
             #{tag.label}
           </Link>
         ))}

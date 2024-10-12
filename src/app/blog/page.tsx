@@ -1,4 +1,4 @@
-import { fetchPosts } from '@/app/[locale]/actions';
+import { fetchPosts } from '@/app/actions';
 import Sidebar2 from '@/components/layout/Sidebar2';
 import BlogList from '@/components/page/blog/BlogList';
 import { DEFAULT_PAGE } from '@/constant/pagination';

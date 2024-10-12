@@ -5,14 +5,13 @@ import React, { FC } from 'react';
 import ImageWithSkeleton from '@/components/elements/Image';
 import Pagination from '@/components/elements/Pagination';
 import { GetPostResponse } from '@/data/model/Post/post';
-import { Link } from '@/utils/navigate';
+import Link from 'next/link';
 
 type Props = {
   postResponse: GetPostResponse;
 };
 
 const BlogList: FC<Props> = ({ postResponse }) => {
-  // const t = useTranslations();
 
   return (
     <div className="col-lg-8">
@@ -23,27 +22,18 @@ const BlogList: FC<Props> = ({ postResponse }) => {
             key={i}>
             <div className="card-image hover-up">
               <Link
-                href={{
-                  pathname: '/blog/[...slug]',
-                  params: { slug: [item.slug] },
-                }}>
+                href={`/bai-viet/${item.slug}`}>
                 <ImageWithSkeleton src={item.poster} alt={item.title} />
               </Link>
             </div>
             <div className="card-info">
               <Link
                 className="btn btn-tag bg-gray-800 hover-up"
-                href={{
-                  pathname: '/category/[...slug]',
-                  params: { slug: [item.category?.name] },
-                }}>
+                href={`/danh-muc/${item.category?.name}`}>
                 {item.category?.name}
               </Link>
               <Link
-                href={{
-                  pathname: '/blog/[...slug]',
-                  params: { slug: [item.slug] },
-                }}>
+                href={`/bai-viet/${item.slug}`}>
                 <h4 className="mt-15 mb-20 color-white">{item.title}</h4>
               </Link>
               <div className="row mt-20">
@@ -52,10 +42,7 @@ const BlogList: FC<Props> = ({ postResponse }) => {
                     ? item.tags.map((tag) => (
                       <Link
                         className="color-gray-700 text-sm mr-15"
-                        href={{
-                          pathname: '/tag/[...slug]',
-                          params: { slug: [tag.label] },
-                        }}
+                        href={`/tag/${tag.label}`}
                         key={tag.label}>
                         #{tag.label}
                       </Link>
