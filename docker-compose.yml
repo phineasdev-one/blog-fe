@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   client:
-    image: phianhdev/blog-fe:latest
+    image: phianhdev/my-personal-blog:latest
     container_name: Blog-FE
     build: .
     environment:
