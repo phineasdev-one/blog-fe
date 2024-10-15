@@ -1,12 +1,12 @@
 import { Suspense } from 'react';
 
-import Loading from './loading';
-
 import { fetchPosts } from '@/app/actions';
 import Sidebar2 from '@/components/layout/Sidebar2';
 import BlogList from '@/components/page/blog/BlogList';
 import { DEFAULT_PAGE } from '@/constant/pagination';
 import { getCategories } from '@/data/service/Category/getCategory';
+
+import Loading from './loading';
 
 export const metadata = {
   title: 'Blogs',
