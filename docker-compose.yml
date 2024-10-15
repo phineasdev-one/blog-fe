@@ -7,8 +7,6 @@ services:
     build: .
     ports:
       - 3001:80
-    networks:
-      - my_network
     environment:
       - TZ=Asia/Ho_Chi_Minh
     restart: unless-stopped
@@ -26,6 +24,3 @@ services:
       io.portainer.accesscontrol.users: admin
     depends_on:
       - client
-
-my_network:
-  external: true
