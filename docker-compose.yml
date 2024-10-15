@@ -5,8 +5,6 @@ services:
     image: phianhdev/my-personal-blog:latest
     container_name: Blog-FE
     build: .
-    ports:
-      - 3001:80
     environment:
       - TZ=Asia/Ho_Chi_Minh
     restart: unless-stopped
@@ -16,7 +14,8 @@ services:
   nginx:
     container_name: Blog-Nginx-Client
     build: ./nginx
-
+    ports:
+      - 3001:80
     environment:
       - TZ=Asia/Ho_Chi_Minh
     restart: unless-stopped
