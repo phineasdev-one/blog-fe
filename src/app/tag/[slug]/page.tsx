@@ -1,11 +1,27 @@
 import Link from 'next/link';
-import React from 'react';
+import { notFound } from 'next/navigation';
+import React, { FC } from 'react';
 
+import { fetchPostsByTag } from '@/app/actions';
 import Breadcrumb from '@/components/elements/Breadcrumb';
-import Pagination from '@/components/elements/Pagination';
-import data from '@/data/mock/blog-data3';
+import { formatDateTime } from '@/utils/dateTime';
+type Props = {
+  params: { slug: string };
+};
 
-const Category = () => {
+const TagCategory: FC<Props> = async ({ params }) => {
+  const { slug } = params;
+
+  const tagDetail = await fetchPostsByTag({
+    tagName: slug,
+  });
+
+  const tagAvailable = tagDetail.items?.length;
+
+  if (!tagAvailable) {
+    return notFound();
+  }
+
   return (
     <div className="cover-home3">
       <div className="container">
@@ -16,20 +32,16 @@ const Category = () => {
               <div className="col-lg-12 text-center">
                 <div className="d-inline-block position-relative">
                   <h1 className="color-white mb-10 color-linear wow animate__animated animate__fadeIn">
-                    Healthy
+                    {tagDetail.items[0].tags[0].label}
                   </h1>
                 </div>
                 <p className="color-gray-500 text-base mb-20 wow animate__animated animate__fadeIn">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                  convallis nisi sed turpis
-                  <br className="d-none d-lg-block" />
-                  vulputate viverra. Morbi ligula elit, hendrerit non nisl
-                  tincidunt, sodales consequat magna.
+                  {tagDetail.items[0].tags[0].description}
                 </p>
               </div>
               <div className="col-lg-12 text-center">
                 <div className="box-breadcrumbs wow animate__animated animate__fadeIn">
-                  <Breadcrumb title="Healthy" />
+                  <Breadcrumb title={tagDetail.items[0].tags[0].label} />
                 </div>
               </div>
               <div className="col-lg-12">
@@ -40,35 +52,32 @@ const Category = () => {
               <div className="row">
                 <div className="col-lg-8 m-auto">
                   <div className="box-list-posts mt-30">
-                    {data.slice(0, 5).map((item, i) => (
+                    {tagDetail.items.map((item, i) => (
                       <div
                         key={i}
                         className="card-list-posts card-list-posts-small border-bottom border-gray-800 pb-30 mb-30 wow animate__animated animate__fadeIn">
                         <div className="card-image hover-up">
                           <div className="box-author mb-20">
                             <img
-                              src="assets/imgs/page/healthy/author.png"
-                              alt="Phieas"
+                              src="../assets/imgs/page/homepage1/author3.png"
+                              alt="Phineas"
                             />
                             <div className="author-info">
-                              <h6 className="color-gray-700">Joseph</h6>
+                              <h6 className="color-gray-700">Phineas</h6>
                               <span className="color-gray-700 text-sm">
-                                25 April 2023
+                                {formatDateTime(item.createdAt)}
                               </span>
                             </div>
                           </div>
-                          <Link
-                            className="btn btn-tag bg-gray-800 hover-up"
-                            href="/blog-archive">
-                            {item.category}
-                          </Link>
                         </div>
                         <div className="card-info">
-                          <Link href={`/bai-viet/${item.id}`}>
+                          <Link href={`/bai-viet/${item.slug}`}>
                             <h3 className="mb-20 color-white">{item.title}</h3>
                           </Link>
-                          <p className="color-gray-500">{item.excerpt}</p>
-                          <div className="row mt-20">
+                          <p className="color-gray-500">
+                            {item.shortDescription}
+                          </p>
+                          {/* <div className="row mt-20">
                             <div className="col-7">
                               <Link
                                 className="color-gray-700 text-sm mr-15"
@@ -86,12 +95,16 @@ const Category = () => {
                                 3 mins read
                               </span>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     ))}
                   </div>
-                  <Pagination currentPage={0} totalCount={0} pageSize={0} />
+                  {/* <Pagination
+                    currentPage={tagDetail.meta.currentPage}
+                    pageSize={tagDetail.meta.itemsPerPage}
+                    totalCount={tagDetail.meta.totalItems}
+                  /> */}
                 </div>
               </div>
             </div>
@@ -102,4 +115,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default TagCategory;

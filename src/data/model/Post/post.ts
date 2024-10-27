@@ -34,4 +34,9 @@ export type GetPostByCategoryRequest = {
   categoryName: string;
 };
 
+export type GetPostByTagRequest = {
+  tagName: string;
+  pagination?: ApiPaging;
+};
+
 export type GetPostDetailResponse = Post;

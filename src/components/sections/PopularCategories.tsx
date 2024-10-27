@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FC } from 'react';
 
 import { Tag } from '@/data/model/Tag/tag';
@@ -25,23 +26,12 @@ const PopularCategories: FC<Props> = ({ tags }) => {
                 className="card-style-2 hover-up hover-neon wow animate__animated animate__fadeIn"
                 data-wow-delay={`${index / 10}s`}>
                 <div className="card-image">
-                  {/* <Link
-                    href={{
-                      pathname: '/tag/${tag.label',
-                      params: { slug: [] },
-                    }}> */}
-                  <img src={tag.thumbnail} alt={tag.label} />
-                  {/* </Link> */}
+                  <Link href={`/tag/${tag.label}`}>
+                    <img src={tag.thumbnail} alt={tag.label} />
+                  </Link>
                 </div>
                 <div className="card-info">
-                  {/* <Link
-                    className="color-gray-500"
-                    href={{
-                      pathname: '/tag/[...slug]',
-                      params: { slug: [tag.label] },
-                    }}> */}
-                  {tag.label}
-                  {/* </Link> */}
+                  <Link href={`/tag/${tag.label}`}>{tag.label}</Link>
                 </div>
               </div>
             </div>
