@@ -31,20 +31,22 @@ const RecentPosts: FC<Props> = ({ posts }) => {
                 {post.category.name}
               </Link>
               <Link href={`/bai-viet/${post.slug}`}>
-                <h4 className="mt-15 mb-20 color-white"> {post.title}</h4>
+                <h4 className="mt-5 mb-10 color-white"> {post.title}</h4>
               </Link>
-              <p className="color-gray-500">{post.shortDescription}</p>
-              <div className="row mt-20">
+              <p className="color-gray-500 text-over">
+                {post.shortDescription}
+              </p>
+              <div className="row mt-10">
                 <div className="col-7">
                   {post.tags
                     ? post.tags.map((tag) => (
-                        <Link
-                          href={`/tag/${tag.label}`}
-                          className="color-gray-700 text-sm mr-15"
-                          key={tag.label}>
-                          #{tag.label}
-                        </Link>
-                      ))
+                      <Link
+                        href={`/tag/${tag.label}`}
+                        className="color-gray-700 text-sm mr-15"
+                        key={tag.label}>
+                        #{tag.label}
+                      </Link>
+                    ))
                     : ''}
                 </div>
               </div>

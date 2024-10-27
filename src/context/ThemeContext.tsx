@@ -25,6 +25,9 @@ export const ThemeProvider: FC<ChildProps> = ({ children }) => {
   // Load the theme from localStorage when the component mounts
   useEffect(() => {
     const currentTheme = localStorage.getItem('theme');
+    if (!currentTheme) {
+      return;
+    }
     setIsDarkMode(currentTheme === 'night');
   }, []);
 

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import Logo from '@/components/elements/Logo';
@@ -44,7 +45,13 @@ const Footer = () => {
                     />
                   </div>
                   <div className="mt-20">
-                    <button className="btn btn-linear hover-up">
+                    <button
+                      className="btn btn-linear hover-up"
+                      onClick={() => {
+                        alert(
+                          'Tính năng này đang được cập nhật trong bản vá tiếp theo - 10/12/2024',
+                        );
+                      }}>
                       Đăng ký
                       <i className="fi-rr-arrow-small-right" />
                     </button>

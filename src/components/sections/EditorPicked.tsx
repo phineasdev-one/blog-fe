@@ -79,9 +79,11 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
                     </span>
                   </div>
                 </div>
-                <h6 className="color-white mt-20" style={{ height: '45px' }}>
-                  {post.title || <Skeleton />}
-                </h6>
+                <Link href={`/bai-viet/${post.slug}`}>
+                  <h6 className="color-white mt-20" style={{ height: '45px' }}>
+                    {post.title || <Skeleton />}
+                  </h6>
+                </Link>
                 <div className="row align-items-center mt-25">
                   <div className="col-7">
                     <div className="box-author">
