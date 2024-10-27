@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 
 const Experience = () => {
   return (
@@ -55,6 +56,21 @@ const Experience = () => {
                   target="_blank"
                   download>
                   Tải xuống CV
+                </Link>
+              </div>
+              <div className="item-comment border-gray-800 wow animate__animated animate__fadeIn gap-2 d-flex pointer">
+                <Link
+                  href="https://www.facebook.com/Anhtpde140084/"
+                  target="_blank">
+                  <FaFacebookSquare size={30} className="color-gray-500" />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/phineas-tran-86260325b/"
+                  target="_blank">
+                  <FaLinkedin size={30} className="color-gray-500" />
+                </Link>
+                <Link href="https://github.com/phineastrandev" target="_blank">
+                  <FaGithubSquare size={30} className="color-gray-500" />
                 </Link>
               </div>
             </div>

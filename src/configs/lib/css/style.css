@@ -1498,6 +1498,14 @@ a.text-brand-3:hover {
   background: url(/assets/imgs/template/icons/user.svg) no-repeat left center;
 }
 
+.theme-day .input-email {
+  color: #000000;
+}
+
+.theme-day .input-name {
+  color: #000000;
+}
+
 .input-email {
   background: url(/assets/imgs/template/icons/email.svg) no-repeat left center;
 }

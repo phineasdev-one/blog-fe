@@ -33,14 +33,14 @@ const Footer = () => {
                     <input
                       className="input-name border-gray-500"
                       type="text"
-                      placeholder="Your name"
+                      placeholder="Tên của bạn"
                     />
                   </div>
                   <div className="form-group">
                     <input
                       className="input-email border-gray-500"
                       type="email"
-                      placeholder="Email address"
+                      placeholder="Địa chỉ email"
                     />
                   </div>
                   <div className="mt-20">
@@ -52,46 +52,32 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="footer-bottom border-gray-800">
+            {/* <div className="footer-bottom border-gray-800">
               <div className="row">
                 <div className="col-lg-5 text-center text-lg-start">
                   <p className="text-base color-white wow animate__animated animate__fadeIn">
                     © 2024 tạo bởi Phineas
                   </p>
                 </div>
-                {/* <div className="col-lg-7 text-center text-lg-end">
+                <div className="col-lg-7 text-center text-lg-end">
                   <div className="box-socials">
-                    <div
-                      className="d-inline-block mr-30 wow animate__animated animate__fadeIn"
-                      data-wow-delay=".0s">
-                      <Link
-                        className="icon-socials icon-github color-gray-500"
-                        href="https://twitter.com">
-                        Twitter
-                      </Link>
-                    </div>
-                    <div
-                      className="d-inline-block mr-30 wow animate__animated animate__fadeIn"
-                      data-wow-delay=".2s">
-                      <Link
-                        className="icon-socials icon-linked color-gray-500"
-                        href="https://www.linkedin.com">
-                        LinkedIn
-                      </Link>
-                    </div>
-                    <div
-                      className="d-inline-block wow animate__animated animate__fadeIn"
-                      data-wow-delay=".4s">
-                      <Link
-                        className="icon-socials icon-insta color-gray-500"
-                        href="https://www.instagram.com">
-                        Instagram
-                      </Link>
-                    </div>
+                    <Link className="color-gray-500" href="https://twitter.com">
+                      <FaFacebookSquare size={30} />
+                    </Link>
+                    <Link
+                      className="icon-socials icon-linked color-gray-500"
+                      href="https://www.linkedin.com">
+                      LinkedIn
+                    </Link>
+                    <Link
+                      className="icon-socials icon-insta color-gray-500"
+                      href="https://www.instagram.com">
+                      Instagram
+                    </Link>
                   </div>
-                </div> */}
+                </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
