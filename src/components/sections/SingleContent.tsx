@@ -43,6 +43,11 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
     line-height: 24px;
   }
 
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
   ul,
   ol {
     padding: 0 1rem;
