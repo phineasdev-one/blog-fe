@@ -36,10 +36,11 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
   outline: none;
 
   blockquote {
-    border-left: 2px solid #0d0d0d;
+    border-left: 2px solid #0ea5ea;
     padding: 10px;
-    background: #80808026;
+    background: #dedfe18a;
     border-radius: 4px;
+    line-height: 24px;
   }
 
   ul,
@@ -79,11 +80,6 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
     margin-right: auto;
     border-radius: 0.5rem;
     object-fit: cover;
-  }
-
-  blockquote {
-    padding-left: 1rem;
-    border-left: 2px solid rgba(#0d0d0d, 0.1);
   }
 
   hr {
