@@ -24,6 +24,10 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
     color: white;
   }
 
+  blockquote {
+    background: #131e35e0;
+  }
+
   th {
     background-color: transparent;
   }
