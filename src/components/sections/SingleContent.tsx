@@ -35,22 +35,30 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
   color: #0d0d0d;
   outline: none;
 
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
   blockquote {
     border-left: 2px solid #0ea5ea;
     padding: 10px;
     background: #dedfe18a;
     border-radius: 4px;
     line-height: 24px;
+    margin: 0px;
+
+    p {
+      font-size: 14px;
+    }
   }
 
-  p {
-    font-size: 16px;
-    line-height: 24px;
-  }
 
   ul,
   ol {
     padding: 0 1rem;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   a {
