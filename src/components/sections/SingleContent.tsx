@@ -35,6 +35,13 @@ const SingleContent: FC<Props> = ({ content, tags }) => {
   color: #0d0d0d;
   outline: none;
 
+  blockquote {
+    border-left: 2px solid #0d0d0d;
+    padding: 10px;
+    background: #80808026;
+    border-radius: 4px;
+  }
+
   ul,
   ol {
     padding: 0 1rem;
