@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
-import { fetchPosts } from './actions';
-
 import Sidebar2 from '@/components/layout/Sidebar2';
 import EditorPicked from '@/components/sections/EditorPicked';
 import Hero1 from '@/components/sections/Hero1';
@@ -11,6 +9,8 @@ import RecentPosts from '@/components/sections/RecentPosts';
 import HotTopic from '@/components/slider/HotTopic';
 import { getCategories } from '@/data/service/Category/getCategory';
 import { getTags } from '@/data/service/Tag/getTag';
+
+import { fetchPosts, fetchTopArticles } from './actions';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 export const metadata: Metadata = {
@@ -29,10 +29,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const [categories, postResponse, tags] = await Promise.all([
+  const [categories, topArticles, tags, postResponse] = await Promise.all([
     getCategories(),
-    fetchPosts({ page: 1 }),
+    fetchTopArticles({ page: 1 }),
     getTags(),
+    fetchPosts({ page: 1 }),
   ]);
 
   return (
@@ -50,8 +51,8 @@ export default async function Home() {
             </Suspense>
             <Suspense fallback={<p>Loading.....</p>}>
               <EditorPicked
-                postsInitial={postResponse.items}
-                metaInfo={postResponse.meta}
+                postsInitial={topArticles.items}
+                metaInfo={topArticles.meta}
               />
             </Suspense>
             <Suspense fallback={<p>Loading.....</p>}>

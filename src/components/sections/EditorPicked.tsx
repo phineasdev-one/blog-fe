@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FC, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { fetchPosts } from '@/app/actions';
+import { fetchTopArticles } from '@/app/actions';
 import ImageWithSkeleton from '@/components/elements/Image';
 import LoadingText from '@/components/elements/LoadingText';
 import { Post } from '@/data/model/Post/post';
@@ -24,7 +24,7 @@ const EditorPicked: FC<Props> = ({ postsInitial, metaInfo }) => {
     try {
       setIsLoading(true);
       const next = page + 1;
-      const postResponse = await fetchPosts({ page: next });
+      const postResponse = await fetchTopArticles({ page: next });
 
       if (postResponse.items.length) {
         setPage(next);
