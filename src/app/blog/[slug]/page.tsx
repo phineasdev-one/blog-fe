@@ -82,7 +82,7 @@ const BlogDetailScreen: FC<Props> = async ({ params }) => {
                 </div>
               </div>
               <div className="col-lg-10 m-auto">
-                <div className="row mb-40">
+                <div className="row m-0">
                   <div className="col-md-6 mb-10">
                     <div className="box-author">
                       <img
